@@ -1,4 +1,4 @@
-#LoHi - mod4 group project
+# LoHi - mod4 group project
 
 This application was built for users to be able to Bake with recipes accoderntly to their location altitude.  
 
