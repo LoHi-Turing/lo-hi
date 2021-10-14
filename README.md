@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+#LoHi - mod4 group project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application was built for users to be able to Bake with recipes accoderntly to their location altitude.  
 
-## Available Scripts
+## [Visit Our Site Here]()
 
-In the project directory, you can run:
 
-### `npm start`
+## Summary
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This application was built for users to be able to Bake with recipes accoderntly to their location altitude.  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+When the user chooses the "Location" from the search bar, they will be taken to a page dedicated to show them some recipes with the ingredients already adjusted accordently to their zipcode or city altitude.
 
-### `npm test`
+When a user click in a recipe they will be directed to a page with the complete recipe information
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Tech Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+JavaScript | CSS | React | ReactRouter | Cypress/E2E | AJAX  | PWA (Service Workers && Caching)|
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Fork this repo (look up in the top right corner) and copy the SSH link.
+Open your terminal, run git clone (replace the [ ] with the copied remote address)
+Change into the directory and run
+```bash
+npm i
+```
+To view, run:
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Paste this: http://localhost:3000/ into your browser
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Current Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+User can download the app to the device of their choice for easier access.
+User can use application offline.
 
-## Learn More
+## Future Features 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Option for the user to add their own recipes, and accordently with theis city, the calculator will update the diferences 
+between different altitudes 
+A user can Favorite recipes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Preview
 
-### Code Splitting
+- Info about the recorded gif
+![recording (1)]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+- Info about the recorded gif
+![recording (2)]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Info about the recorded gif
+![recording (3)]()
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Organizational Tools
 
-### Advanced Configuration
+- *Project Spec: [link](https://mod4.turing.edu/projects/capstone/ "Spec")*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- *Project Wireframing: [link](https://miro.com/app/board/o9J_lq1w5ZE=/?invite_link_id=688520709845)*
 
-### Deployment
+- *Project Board: [link](https://github.com/orgs/LoHi-Turing/projects/1)*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Reflection
 
-### `npm run build` fails to minify
+### Wins
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Have an amazing group to work with 
+
+### Challenges
+
+- First group project including Both FrontEnd and BackEnd Software Developers 
+- Managing media queries for reposive design
+
+
+## Contributors
+
+FrontEnd Developers: 
+
+[Joana](https://github.com/joanafbrito)
+[Meg](https://github.com/Meggs625)
+
+BackEnd Developers: 
+
+[Jacob Martinez](https://github.com/Jacobmar13)
+[Jacob Piland](https://github.com/Jtpiland)
