@@ -83,10 +83,10 @@ A user can Favorite recipes
 
 FrontEnd Developers: 
 
-[Joana](https://github.com/joanafbrito)
-[Meg](https://github.com/Meggs625)
+- [Joana](https://github.com/joanafbrito)
+- [Meg](https://github.com/Meggs625)
 
 BackEnd Developers: 
 
-[Jacob Martinez](https://github.com/Jacobmar13)
-[Jacob Piland](https://github.com/Jtpiland)
+- [Jacob Martinez](https://github.com/Jacobmar13)
+- [Jacob Piland](https://github.com/Jtpiland)
