@@ -12,5 +12,6 @@ script:
 #   skip_cleanup: true
 #   domain: <my_name_here>.surge.sh
 #   project: ./build/
+# will fill out when we deploy
 on:
   branch: main
