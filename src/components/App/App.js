@@ -21,8 +21,8 @@ const App = () => {
         )}/>
         <Route exact path="/all-categories" render={() => {
             <section className='categories-page'>
-              {/* <Header/>
-              <Footer/> */}
+              <Header/>
+              <Footer/>
             </section>
           }
         }/>
