@@ -5,6 +5,7 @@ import Landing from "../Landing/Landing";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import AllCategories from '../AllCategories/AllCategories';
+import { getLocationData } from "../../utils/apiCalls";
 import './App.css';
 
 const App = () => {
@@ -12,6 +13,8 @@ const App = () => {
   const [currentLocation, setCurrentLocation] = useState('')
    
   const updateLocation = newLocation => {
+    getLocationData(newLocation)
+      .then(data => console.log(data))
     setCurrentLocation(newLocation)
   }
   
