@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router";
 import Landing from "../Landing/Landing";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import AllCategories from '../AllCategories/AllCategories';
 import './App.css';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route exact path="/all-categories" render={() => {
             <section className='categories-page'>
               <Header/>
+              <AllCategories />
               <Footer/>
             </section>
           }
