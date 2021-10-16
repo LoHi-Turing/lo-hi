@@ -20,13 +20,13 @@ const App = () => {
               <Landing />
             </section>
         )}/>
-        <Route exact path="/all-categories" render={() => {
+        <Route exact path="/all-categories" render={() => 
             <section className='categories-page'>
               <Header/>
               <AllCategories />
               <Footer/>
             </section>
-          }
+          
         }/>
         <Route exact path="/recipies-by-category" render={() => {
             <section className='recipies-by-category'>
