@@ -8,8 +8,12 @@ import AllCategories from '../AllCategories/AllCategories';
 import './App.css';
 
 const App = () => {
+
+  const [currentLocation, setCurrentLocation] = useState('')
    
-  
+  const updateLocation = newLocation => {
+    setCurrentLocation(newLocation)
+  }
   
   
   return (
@@ -17,7 +21,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => (
             <section className='landing-page'>
-              <Landing />
+              <Landing updateLocation={updateLocation}/>
             </section>
         )}/>
         <Route exact path="/all-categories" render={() => 
