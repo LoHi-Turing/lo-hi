@@ -1,5 +1,8 @@
 .landing {
     color:aliceblue;
+    height: 100vh;
+    width: 100vw;
+    background-color: #0d0f15;
 }
 .background-img {
     /* margin: 20px; */
