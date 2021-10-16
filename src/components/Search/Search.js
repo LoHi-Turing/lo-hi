@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Search.css';
 
 const Search = () => {
+
+    const [location, setLocation] = useState('')
+
     return (
         <form className='search-field'>
         {/* I've started the idea of having the onChange function, did not went to far so you we can decide together if you prefer */}
