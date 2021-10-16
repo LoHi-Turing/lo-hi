@@ -1,6 +1,10 @@
 .header {
   color: #0d0f15;
-  height: 10%;
-  width: 100%;
+  height: 10vh;
+  width: 100vw;
   background-color: aliceblue;
+}
+
+.company-name {
+  margin: 0;
 }
