@@ -1,7 +1,7 @@
 import React from "react";
 import Search from '../Search/Search';
 import './Landing.css';
-import brandLogo from '../../images/LoHi.png';
+// import brandLogo from '../../images/LoHi.png';
 
 
 const Landing = ({ updateLocation }) => {
@@ -9,7 +9,7 @@ const Landing = ({ updateLocation }) => {
         <section className='landing'>
             <img className='background-img'src='https://thumbs.dreamstime.com/b/ocher-apron-various-baking-ingredients-eggs-sugar-cinnamon-sticks-kitchen-utensils-white-background-top-view-copy-175923956.jpg' alt='baking'/>
                 <div>
-                    <img className='logo' src={brandLogo} alt="LoHi logo"/>
+                    <img className='logo' src='' alt="LoHi logo"/>
                     <h1>Where your AlTituDe matters!</h1>
                     <Search updateLocation={updateLocation}/>
                     <h2>How To Use LoHi</h2>
