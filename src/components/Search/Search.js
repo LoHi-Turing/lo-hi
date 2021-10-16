@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Search.css';
 
-const Search = () => {
+const Search = ({ updateLocation }) => {
 
     const [location, setLocation] = useState('')
 
-    const handleClick = event => {
-       
-
+    const handleClick = () => {
+       updateLocation(location)
     }
 
     return (
-        <form className='search-field' onClick={e => handleClick(e)}>
+        <form className='search-field' onClick={() => handleClick()}>
         {/* I've started the idea of having the onChange function, did not went to far so you we can decide together if you prefer */}
             {/* <input type='search' className='search-bar' placeholder='ZipCode or City Name' onChange={(e) => handleChange(e)}/> */}
             <input 
