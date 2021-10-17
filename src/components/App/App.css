@@ -2,8 +2,8 @@
   height: 100vh;
   width: 100vw;
   text-align: center;
-  background-color: #0d0f15;
-  min-height: 100vh;
+  /* background-color: #0d0f15; */
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,16 @@
 .landing-page {
   height: 100%;
   width: 100%;
-  background-color: #0d0f15;
+  /* background-color: #0d0f15; */
+  background-color: #2b1f1a;
+}
+
+.categories-page {
+  height: 100vh;
+  width: 100vw;
+  margin-bottom: 0;
+  /* background-color: none; */
+
 }
 
 /* 
