@@ -4,6 +4,9 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
     font-family: 'Indie Flower', cursive;
+    /* font-family: 'Caveat', cursive; */
+/* font-family: 'Cormorant Garamond', serif; */
+/* font-family: 'Crimson Text', serif; */
     /* font-family: 'Lora', serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,7 +21,6 @@ code {
 font-family: 'Caveat', cursive;
 font-family: 'Cormorant Garamond', serif;
 font-family: 'Crimson Text', serif;
-font-family: 'Explora', cursive;
 font-family: 'Indie Flower', cursive;
 font-family: 'Lora', serif;
 
