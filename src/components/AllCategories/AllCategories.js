@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const AllCategories = () => {
   return (
     <main className='categories-display'>
-      <h1>Baking Categories</h1>
+      <h1 className='baking-categories-title'>Baking Categories</h1>
       <section className='links-container'>
         <Link className='links'>Cakes</Link>
         <Link className='links'>Bread</Link>

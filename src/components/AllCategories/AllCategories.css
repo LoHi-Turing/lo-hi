@@ -1,6 +1,12 @@
 .categories-display {
-  height: 72vh;
-  width: 100%;  
+  height: 78vh;
+  /* width: 100%;  */
+  background-color: #fbf8f3; 
+}
+
+.baking-categories-title {
+  margin: 0;
+  color:black;
 }
 
 .links-container {
