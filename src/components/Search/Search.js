@@ -43,5 +43,3 @@ const Search = ({ updateLocation }) => {
 
 export default Search;
 
-//We might need to put the mag-glass image on a button so that we can allow the user to use the "Enter" button on prevent the default page refresh. I didn't want to do it and mess up the styling :) 
-
