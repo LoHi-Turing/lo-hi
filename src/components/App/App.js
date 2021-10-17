@@ -5,7 +5,7 @@ import Landing from "../Landing/Landing";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import AllCategories from '../AllCategories/AllCategories';
-// import { getLocationData } from "../../utils/apiCalls";
+import { getLocationData } from "../../utils/apiCalls";
 import './App.css';
 
 const App = () => {
@@ -20,13 +20,11 @@ const App = () => {
     setQuery(userInput)
   }
 
-  const getLocationData = async() => {
-    let url = `https://lohi-api.herokuapp.com/api/v1/location?location=${query}`
+  const invokeLocationData = async() => {
     try {
-      const res = await fetch(url)
+      const res = await getLocationData(query)
       const returnedLocationInfo = await res.json()
       setLocation(returnedLocationInfo.data.attributes.city)
-      // console.log(returnedLocationInfo.data.attributes)
       setElevation(returnedLocationInfo.data.attributes.elevation)
       setHumidity(returnedLocationInfo.data.attributes.humidity)
 
@@ -36,7 +34,7 @@ const App = () => {
   }
 
   useEffect(() => {    
-    getLocationData()    
+    invokeLocationData()    
   },[query])
   
   
