@@ -1,4 +1,6 @@
 .categories-display {
+  display: flex;
+  flex-direction: column;
   height: 78vh;
   /* width: 100%;  */
   background-color: #fbf8f3; 
@@ -10,9 +12,31 @@
 }
 
 .links-container {
-  margin-top: 10%;
+  /* i want to use grid and add 1 colum with 3 and second colum with 2
+  see if this is possible otherwise i will change to 2 diff containers 
+  and keep the flexbox */
+  display: flex;
+  justify-content: center;
+  margin: 10%;
+  color:black;
+}
+
+.categories-img-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-img {
+  border: 3px solid gray;
+  border-radius: 50%;
+  width: 80%;
 }
 
 .links {
-  margin: 1%;
+  font-size: 18px;
+  text-align: center;
+  align-items: center;
+  /* margin: 1%; */
 }
