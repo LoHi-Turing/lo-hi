@@ -3,8 +3,12 @@ import './Header.css';
 
 const Header = () => {
   return (
-    <section className='header'> 
-      <h1 className='company-name'>Header</h1>
+    <section className='header'>
+      <div className='header-location'>
+        <p className='p-location'>Your Location is</p>
+        <input className='location' type='text' value='current Location'/>
+      </div> 
+      <h1 className='company-name'>LoHi</h1>
     </section>
   )
 }
