@@ -5,6 +5,7 @@ import Landing from "../Landing/Landing";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import AllCategories from '../AllCategories/AllCategories';
+// import { getLocationData } from "../../utils/apiCalls";
 import './App.css';
 
 const App = () => {
@@ -12,8 +13,28 @@ const App = () => {
   const [currentLocation, setCurrentLocation] = useState('')
    
   const updateLocation = newLocation => {
+    // getLocationData(newLocation)
+      // .then(data => console.log(data))
     setCurrentLocation(newLocation)
   }
+
+  const getLocationData = async() => {
+    let url = 'https://lohi-api.herokuapp.com/api/v1/location?location=losangeles'
+    try {
+      const res = await fetch(url)
+      const returnedLocationInfo = console.log(res, 'res')
+      console.log(returnedLocationInfo.results)
+    } catch (err) {
+      console.log('Error: ', err)
+    }
+    return fetch(url)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => {    
+    getLocationData()    
+  },[currentLocation])
   
   
   return (
