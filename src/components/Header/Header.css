@@ -1,8 +1,40 @@
 .header {
-  color: #0d0f15;
-  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f2b66f;
+  height: 12vh;
+  background-color: #5b5b5b;
+  /* margin-top: 0; */
+  /* width: 100vw; */
+  /* height: 100px; */
+}
+
+.header-location {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: baseline;
   width: 100vw;
-  background-color: aliceblue;
+  margin: 0;
+}
+
+.p-location {
+  margin: 0;
+  font-size: 12px;
+}
+
+.location {
+  text-align: center;
+  height: 12px;
+  margin-left: 2px;
+  outline-color: hsl(0deg 0% 62% / 6%);
+  border: 0;
+  margin-bottom: 0;
+  border-bottom: 0.5px solid #9e9e9eb8;
+  background-color: #5b5b5b;
+  color: #fbf8f3;
+  /* width: fit-content; */
 }
 
 .company-name {

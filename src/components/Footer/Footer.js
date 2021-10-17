@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <section className='footer'>
-      <h1>Footer</h1>
+      <p className='app-name-footer'>@LoHi</p>
     </section>
   )
 }

@@ -1,6 +1,10 @@
 .footer {
-  color: #0d0f15;
+  color: #fbf8f3;
   height: 10vh;
-  width: 100vw;
-  background-color: aliceblue;
+  background-color: #5b5b5b;
+  text-align: center;
+}
+
+.app-name-footer {
+  margin: 0;
 }
