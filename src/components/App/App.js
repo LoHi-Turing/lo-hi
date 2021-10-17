@@ -5,36 +5,37 @@ import Landing from "../Landing/Landing";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import AllCategories from '../AllCategories/AllCategories';
-// import { getLocationData } from "../../utils/apiCalls";
+import { getLocationData } from "../../utils/apiCalls";
 import './App.css';
 
 const App = () => {
 
-  const [currentLocation, setCurrentLocation] = useState('')
+  const [query, setQuery] = useState('')
+  const [location, setLocation] = useState('')
+  const [elevation, setElevation] = useState('')
+  const [humidity, setHumidity] = useState('')
+  const [error, setError] = useState('')
    
-  const updateLocation = newLocation => {
-    // getLocationData(newLocation)
-      // .then(data => console.log(data))
-    setCurrentLocation(newLocation)
+  const updateLocation = userInput => {
+    setQuery(userInput)
   }
 
-  const getLocationData = async() => {
-    let url = 'https://lohi-api.herokuapp.com/api/v1/location?location=losangeles'
+  const invokeLocationData = async() => {
     try {
-      const res = await fetch(url)
-      const returnedLocationInfo = console.log(res, 'res')
-      console.log(returnedLocationInfo.results)
+      const res = await getLocationData(query)
+      const returnedLocationInfo = await res.json()
+      setLocation(returnedLocationInfo.data.attributes.city)
+      setElevation(returnedLocationInfo.data.attributes.elevation)
+      setHumidity(returnedLocationInfo.data.attributes.humidity)
+
     } catch (err) {
       console.log('Error: ', err)
     }
-    return fetch(url)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
   }
 
   useEffect(() => {    
-    getLocationData()    
-  },[currentLocation])
+    invokeLocationData()    
+  },[query])
   
   
   return (
