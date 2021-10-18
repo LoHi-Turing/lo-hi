@@ -2,7 +2,7 @@
 
 This application was built for users to be able to Bake with recipes accoderntly to their location altitude.  
 
-## [Visit Our Deploy Site Here](lohi.surge.sh)
+## [Visit Our Deploy Site Here](http://lohi.surge.sh/#/)
 
 #### [Look into the BackEnd Repo Here](https://github.com/LoHi-Turing/lohiBE)
 
