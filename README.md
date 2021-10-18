@@ -1,8 +1,10 @@
-# LoHi - mod4 group project
+# LoHi - FrontEnd and BackEnd group project
 
 This application was built for users to be able to Bake with recipes accoderntly to their location altitude.  
 
-## [Visit Our Site Here]()
+## [Visit Our Deploy Site Here](lohi.surge.sh)
+
+#### [Look into the BackEnd Repo Here](https://github.com/LoHi-Turing/lohiBE)
 
 
 ## Summary
@@ -86,7 +88,7 @@ FrontEnd Developers:
 - [Joana](https://github.com/joanafbrito)
 - [Meg](https://github.com/Meggs625)
 
-BackEnd Developers: 
+BackEnd Developers:
 
 - [Jacob Martinez](https://github.com/Jacobmar13)
 - [Jacob Piland](https://github.com/Jtpiland)
