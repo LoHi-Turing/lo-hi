@@ -17,7 +17,7 @@ const App = () => {
   const [error, setError] = useState('')
    
   const updateLocation = userInput => {
-    setQuery(userInput)
+    setQuery(userInput);
   }
 
   const invokeLocationData = async() => {
