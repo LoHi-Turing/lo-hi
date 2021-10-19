@@ -7,11 +7,10 @@ cache:
 script:
   - npm test
   - npm run build
-# deploy:
-#   provider: surge
-#   skip_cleanup: true
-#   domain: <my_name_here>.surge.sh
-#   project: ./build/
-# will fill out when we deploy
+deploy:
+  provider: surge
+  skip_cleanup: true
+  domain: lohi.surge.sh
+  project: ./build/
 on:
   branch: main
