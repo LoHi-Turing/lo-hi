@@ -52,6 +52,7 @@ const App = () => {
                 location={location}
                 elevation={elevation}
                 humidity={humidity}
+                updateLocation={updateLocation}
               />
               <AllCategories />
               <Footer/>

@@ -1,12 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Header.css';
 
-const Header = ({ location, elevation, humidity}) => {
+const Header = ({ location, elevation, humidity, updateLocation}) => {
+
+  const [changeQuery, setChangeQuery] = useState('')
+
+  const handleKeyPress = event => {
+    // event.preventDefault()
+    if(event.key === 'Enter') {
+      event.preventDefault();
+      updateLocation(event.target.value);
+      setChangeQuery('');
+    }
+  }
   return (
     <section className='header'>
       <div className='header-location'>
-        <p className='p-location'>Your Location is </p>
-        <input className='location' type='text' value={location}/>
+        <p className='p-location'>Your Location is {location}</p>
+        <input 
+          className='location' 
+          placeholder='->Change Location<-' 
+          type='text'
+          name='change query'
+          value={changeQuery}
+          onChange={e => setChangeQuery(e.target.value)}
+          onKeyPress={e => handleKeyPress(e)}
+          />
       </div> 
       <div className='location-info'>
         <div className='location-data'>
