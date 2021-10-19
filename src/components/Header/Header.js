@@ -6,7 +6,6 @@ const Header = ({ location, elevation, humidity, updateLocation}) => {
   const [changeQuery, setChangeQuery] = useState('')
 
   const handleKeyPress = event => {
-    // event.preventDefault()
     if(event.key === 'Enter') {
       event.preventDefault();
       updateLocation(event.target.value);
