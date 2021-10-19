@@ -48,7 +48,11 @@ const App = () => {
         )}/>
         <Route exact path="/all-categories" render={() => 
             <section className='categories-page'>
-              <Header/>
+              <Header
+                location={location}
+                elevation={elevation}
+                humidity={humidity}
+              />
               <AllCategories />
               <Footer/>
             </section>
