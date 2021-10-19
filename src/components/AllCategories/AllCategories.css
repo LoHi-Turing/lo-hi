@@ -3,12 +3,14 @@
   flex-direction: column;
   height: 78vh;
   /* width: 100%;  */
-  background-color: #fbf8f3; 
+  background-color: #9e9e9e; 
+  box-shadow: inset 0px 4px 20px 1px rgb(158 158 158 / 45%);
 }
 
 .baking-categories-title {
   margin: 0;
-  color:black;
+  /* color:#f2b66f; */
+  color:#e0ab6d;
 }
 
 .links-container {
@@ -18,7 +20,7 @@
   display: flex;
   justify-content: center;
   margin: 10%;
-  color:black;
+  /* color:black; */
 }
 
 .categories-img-link {
@@ -38,5 +40,11 @@
   font-size: 18px;
   text-align: center;
   align-items: center;
-  /* margin: 1%; */
+  color:#63453b;
+  margin: 1px;
+}
+
+.links:hover {
+  font-size: 20px;
+  color:#ff9800;
 }
