@@ -22,9 +22,25 @@
   margin: 0;
 }
 
+.location-info {
+  display: flex;
+  margin-left: 5%;
+}
+
+.location-data {
+  display: flex;
+  margin: 5%;
+}
+
 .p-location {
   margin: 0;
   font-size: 12px;
+}
+
+.p-elevation {
+  font-size: 10px;
+  margin: 0;
+  width: 20px;
 }
 
 .location {
