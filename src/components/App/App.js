@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 import AllCategories from '../AllCategories/AllCategories';
 import { getLocationData } from "../../utils/apiCalls";
 import './App.css';
+import RecipesByCategory from "../RecipesByCategory/RecipesByCategory";
 
 const App = () => {
 
@@ -69,6 +70,7 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
+              <RecipesByCategory type={ categoryType } allRecipeData={ allRecipeData }/>
               <Footer/> 
             </section>
             )}
