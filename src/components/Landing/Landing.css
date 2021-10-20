@@ -11,9 +11,29 @@
     /* background-color: #0d0f15; */
 }
 .background-img {
-    width: 100%;
+    /* width: 100%; */
+    width: 70%;
     /* margin: 20px; */
 }
+
+.logo-and-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+}
+
+.logo {
+    width: 40%;
+}
+
+.catch-phrase {
+    margin: 0;
+    margin-bottom: 5%;
+}
+
+
 /*Lora, slab 27px*/
 /*Caveat*/
 /*Crimson Text*/
