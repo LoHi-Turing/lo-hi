@@ -3,18 +3,24 @@ import RecipeCard from '../RecipeCard/RecipeCard';
 import './RecipesByCategory.css';
 
 
-const RecipesByCategory = ({ allRecipesData, category }) => {
+const RecipesByCategory = ({ allRecipesData, categoryType }) => {
 
     const dataByCategory = allRecipesData.data.filter((recipe) => {
 
-        // let mainImg = data.img.1
-        if ( recipe.attributes.category === category ) {
+        // let mainImg = recipe.attributes.img[0]
+        if ( recipe.attributes.category === categoryType ) {
             return (
-                recipe card 
+                <RecipeCard 
+                    key={ recipe.id }
+                    id={ recipe.id }
+                    category= { recipe.attributes.category }
+                    title= { recipe.attributes.title }
+                    // img= { mainImg }
+
+                />
             )
         }
     })
-
     // map to recipes and create/ show recipe card
     return (
         <main className='recipes-by-category'>
