@@ -1,18 +1,19 @@
 import React from 'react';
+import RecipeCard from '../RecipeCard/RecipeCard';
 import './RecipesByCategory.css';
 
 
 const RecipesByCategory = (allData) => {
 
-    const dataByCategory = allData.map((data) => {
+    // const dataByCategory = allData.filter((data) => {
 
-        let mainImg = src of the main img 
-        if ( data.category === category ) {
-            return (
-                recipe card 
-            )
-        }
-    })
+    //     let mainImg = src of the main img 
+    //     if ( data.category === category ) {
+    //         return (
+    //             recipe card 
+    //         )
+    //     }
+    // })
 
     // map to recipes and create/ show recipe card
     return (
