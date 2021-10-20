@@ -54,22 +54,32 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               />
-              <AllCategories />
+              <AllCategories/>
               <Footer/>
             </section>
           
         }/>
-        <Route exact path="/recipies-by-category" render={() => {
+        <Route exact path="/:category" render={() => {
             <section className='recipies-by-category'>
-              {/* <Header/>
-              <Footer/> */}
+                <Header
+                location={location}
+                elevation={elevation}
+                humidity={humidity}
+                updateLocation={updateLocation}
+              /> 
+              <Footer/> 
             </section>
           }
         }/>
         <Route exact path="/:id" render={()=> {
             <section className='recipie-details'>
-              {/* <Header/>
-              <Footer/> */}
+                {/* <Header
+                location={location}
+                elevation={elevation}
+                humidity={humidity}
+                updateLocation={updateLocation}
+              /> */}
+              {/* <Footer/> */} 
             </section>
           }
         }/>
