@@ -43,16 +43,6 @@
   font-size: 12px;
 }
 
-.p-elevation {
-  font-size: 20px;
-  margin: 0;
-}
-
-.p-humidity {
-  /* font-size: 20px; */
-  margin: 0;
-}
-
 .location {
   text-align: center;
   height: 12px;
@@ -68,6 +58,16 @@
   background-color: #9e9e9e12;
   /* color: #70371f; */
   color:black;
+}
+
+.p-elevation {
+  font-size: 20px;
+  margin: 0;
+}
+
+.p-humidity {
+  /* font-size: 20px; */
+  margin: 0;
 }
 
 .company-name {
