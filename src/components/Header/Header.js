@@ -29,7 +29,7 @@ const Header = ({ location, elevation, humidity, updateLocation}) => {
       <div className='location-info'>
         <div className='location-data'>
           <p className='p-elevation'>{elevation} m<sup>2</sup></p>
-          <p classname='p-humidity'>{humidity}%</p>
+          <p className='p-humidity'>{humidity}%</p>
         </div>
         <h1 className='company-name'>LoHi</h1>
       </div> 
