@@ -60,7 +60,8 @@ const App = () => {
           
         }/>
         <Route exact path="/:category" render={({ match }) => {
-          {console.log(match.params )}
+            const categoryType = match.params.category
+            return (
             <section className='recipies-by-category'>
                 <Header
                 location={location}
@@ -70,7 +71,7 @@ const App = () => {
               /> 
               <Footer/> 
             </section>
-          }
+            )}
         }/>
         <Route exact path="/:id" render={()=> {
             <section className='recipie-details'>
