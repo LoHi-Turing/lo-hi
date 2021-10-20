@@ -3,7 +3,7 @@ import RecipeCard from '../RecipeCard/RecipeCard';
 import './RecipesByCategory.css';
 
 
-const RecipesByCategory = ({ allData, type }) => {
+const RecipesByCategory = ({ allRecipesData, type }) => {
 
     // const dataByCategory = allData.filter((data) => {
 
