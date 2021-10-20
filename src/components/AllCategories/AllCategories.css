@@ -13,13 +13,16 @@
   color:#e0ab6d;
 }
 
-.links-container {
-  /* i want to use grid and add 1 colum with 3 and second colum with 2
-  see if this is possible otherwise i will change to 2 diff containers 
-  and keep the flexbox */
+.links-container-line1 {
   display: flex;
   justify-content: center;
   margin: 10%;
+  /* color:black; */
+}
+.links-container-line2 {
+  display: flex;
+  justify-content: center;
+  margin: 0 10%;
   /* color:black; */
 }
 
@@ -28,6 +31,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 30%;
 }
 
 .category-img {
