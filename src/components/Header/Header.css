@@ -62,7 +62,7 @@
 
 .elevation-icon {
   width: 30px;
-  transform: rotate(270);
+  transform: rotate(270deg);
   -webkit-transform:rotate(270deg);
 }
 
