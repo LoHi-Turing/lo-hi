@@ -38,13 +38,13 @@
 
 .p-location {
   margin: 0;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .location {
   text-align: center;
-  height: 12px;
-  margin-left: 2px;
+  height: 18px;
+  margin-left: 3px;
   outline: none !important;
   box-sizing: border-box;
   outline-color: hsl(0deg 0% 62% / 6%);
@@ -56,24 +56,26 @@
 }
 
 .p-elevation {
-  font-size: 24px;
+  font-size: 25px;
   margin: 0;
 }
 
 .elevation-icon {
-  width: 50px;
+  width: 30px;
 }
 
 .p-humidity {
-  font-size: 24px;
+  font-size: 25px;
   margin: 0;
 }
 
 .humidity-icon {
-  width: 5px;
+  width: 30px;
 }
 
 .company-name {
   margin: 0;
-  margin-left: 8%;
+  margin-left: 20vw;
+  /* margin-left: 330px; */
+
 }
