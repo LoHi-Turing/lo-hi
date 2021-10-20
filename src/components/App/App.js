@@ -59,7 +59,8 @@ const App = () => {
             </section>
           
         }/>
-        <Route exact path="/:category" render={() => {
+        <Route exact path="/:category" render={({ match }) => {
+          {console.log(match.params )}
             <section className='recipies-by-category'>
                 <Header
                 location={location}
