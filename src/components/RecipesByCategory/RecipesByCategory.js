@@ -3,12 +3,14 @@ import RecipeCard from '../RecipeCard/RecipeCard';
 import './RecipesByCategory.css';
 
 
-const RecipesByCategory = ({ allRecipesData, categoryType }) => {
+const RecipesByCategory = ({ categoryType, allRecipesData }) => {
+
+    console.log(categoryType, allRecipesData.data[0])
 
     const dataByCategory = allRecipesData.data.filter((recipe) => {
 
         // let mainImg = recipe.attributes.img[0]
-        if ( recipe.attributes.category === categoryType ) {
+        if ( recipe.attributes.category == categoryType ) {
             return (
                 <RecipeCard 
                     key={ recipe.id }
@@ -20,11 +22,15 @@ const RecipesByCategory = ({ allRecipesData, categoryType }) => {
                 />
             )
         }
-    })
+    });
+
+    // console.log(dataByCategory)- 
+    // it is returning the whole array not all the cards separate
     return (
         <main className='recipes-by-category'>
-        <h2 className='category-title'>"Category" Recipes</h2>
-        <RecipeCard />
+        <h2 className='category-title'>{ categoryType } Recipes</h2>
+        {/* <RecipeCard /> */}
+        { dataByCategory }
         {/* <section className='recipe-links-container'>
           <div className='recipe-main-img-link'>
             <img className='recipe-main-img' src='https://cdn.shopify.com/s/files/1/0258/8531/products/Lemon_Bundt_Cake_grande.jpg?v=1564603405' alt='Cakes category'/>
