@@ -21,10 +21,9 @@ const RecipesByCategory = ({ allRecipesData, categoryType }) => {
             )
         }
     })
-    // map to recipes and create/ show recipe card
     return (
         <main className='recipes-by-category'>
-        <h1 className='category-title'>"Category" Recipes</h1>
+        <h2 className='category-title'>"Category" Recipes</h2>
         <RecipeCard />
         {/* <section className='recipe-links-container'>
           <div className='recipe-main-img-link'>
