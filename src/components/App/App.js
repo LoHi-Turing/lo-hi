@@ -8,7 +8,7 @@ import AllCategories from '../AllCategories/AllCategories';
 import { getLocationData } from "../../utils/apiCalls";
 import './App.css';
 import RecipesByCategory from "../RecipesByCategory/RecipesByCategory";
-import { allRecipeSampleData } from "../../utils/allRecipesSampleData";
+import allRecipesSampleData from "../../utils/allRecipesSampleData";
 
 const App = () => {
 
@@ -71,7 +71,7 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-              <RecipesByCategory category={ categoryType } allRecipesData={ allRecipesSampleData }/>
+              <RecipesByCategory categoryType={ categoryType } allRecipesData={ allRecipesSampleData }/>
               <Footer/> 
             </section>
             )}
