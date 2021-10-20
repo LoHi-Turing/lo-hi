@@ -2,7 +2,17 @@ import React from 'react';
 import './RecipesByCategory.css';
 
 
-const RecipesByCategory = () => {
+const RecipesByCategory = (allData) => {
+
+    const dataByCategory = allData.map((data) => {
+
+        let mainImg = src of the main img 
+        if ( data.category === category ) {
+            return (
+                recipe card 
+            )
+        }
+    })
 
     // map to recipes and create/ show recipe card
     return (
