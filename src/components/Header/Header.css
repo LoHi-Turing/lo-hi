@@ -35,6 +35,8 @@
 .location-data {
   display: flex;
   flex-direction: row;
+  /* maybe: */
+  justify-content: space-evenly;
   width: 400px;
 }
 
@@ -61,15 +63,16 @@
 }
 
 .p-elevation {
-  font-size: 20px;
+  font-size: 24px;
   margin: 0;
 }
 
 .p-humidity {
-  /* font-size: 20px; */
+  font-size: 24px;
   margin: 0;
 }
 
 .company-name {
   margin: 0;
+  margin-left: 8%;
 }
