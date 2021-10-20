@@ -10,11 +10,12 @@
     border-color: #719ECE;
     box-sizing: border-box;
     box-shadow: 0 0 10px #719ECE;
+    width: 80%;
 }
 .search-bar {
     border: none;
     border-radius: 16px;
-    width: 280%;
+    width: 100%;
     padding-left: 14px;
     height: 32px!important;
     line-height: normal!important;
@@ -24,11 +25,18 @@
     outline: none !important;
   }
 
+  .search-btn{
+    border-radius: 16px;
+    background-color: #edebeb00;
+    border: none;
+    /* padding: 0; */
+  }
+
   .mag-glass {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     padding: 1px;
-    margin: 5px;
     cursor: pointer;
     background-color: #9a9797fa;
+    border-radius: 16px;
   }
