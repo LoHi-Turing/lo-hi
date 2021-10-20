@@ -71,12 +71,12 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-              <RecipesByCategory type={ categoryType } allRecipesData={ allRecipesSampleData }/>
+              <RecipesByCategory category={ categoryType } allRecipesData={ allRecipesSampleData }/>
               <Footer/> 
             </section>
             )}
         }/>
-        <Route exact path="/:id" render={()=> {
+        <Route exact path="/:category/:id" render={()=> {
             <section className='recipie-details'>
                 {/* <Header
                 location={location}
@@ -84,6 +84,7 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> */}
+              {/* <RecipeDetails /> */}
               {/* <Footer/> */} 
             </section>
           }
