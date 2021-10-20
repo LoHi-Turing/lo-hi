@@ -5,12 +5,8 @@
   /* color: #f2b66f; */
   color: #636161;
   height: 12vh;
-  /* background-color: #5b5b5b; */
   background-color: #e19634;
   box-shadow: 0 4px 10px -10px rgb(0 0 0 / 60%);
-  /* margin-top: 0; */
-  /* width: 100vw; */
-  /* height: 100px; */
 }
 
 .header-location {
@@ -20,15 +16,16 @@
   align-items: baseline;
   padding-top: 10px;
   width: 100vw;
-  min-height: 40%;
+  min-height: 4vh;
   background-color: #e3e3e3;
 }
 
 .location-info {
   display: flex;
+  align-items: center;
   width: 100vw;
-  max-height: 20%;
-  margin-left: 5%;
+  max-height: 20vh;
+  /* margin-left: 5%; */
 }
 
 .location-data {
@@ -54,10 +51,7 @@
   border: 0;
   margin-bottom: 0;
   border-bottom: 0.5px solid #9e9e9eb8;
-  /* background-color: #5b5b5b; */
-  /* background-color: #9e9e9e; */
   background-color: #9e9e9e12;
-  /* color: #70371f; */
   color:black;
 }
 
@@ -66,9 +60,17 @@
   margin: 0;
 }
 
+.elevation-icon {
+  width: 50px;
+}
+
 .p-humidity {
   font-size: 24px;
   margin: 0;
+}
+
+.humidity-icon {
+  width: 5px;
 }
 
 .company-name {
