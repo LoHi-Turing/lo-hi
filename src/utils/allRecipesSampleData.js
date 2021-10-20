@@ -1,4 +1,4 @@
-export  const allRecipeSampleData = {
+const allRecipesSampleData = {
     "data": [
         {
             "id": "6",
@@ -46,3 +46,5 @@ export  const allRecipeSampleData = {
         }
     ]
 }
+
+export default allRecipesSampleData;
