@@ -6,11 +6,14 @@
     height: 100vh;
     /* next line to be image side by side */
     display: flex;
+    opacity: 0.8;
+    z-index: 1;
     /* iphone and Ipad needs to styll be the same or change to go to the bottom */
 }
 .background-img {
     /* width: 100%; */
     width: 70%;
+    z-index:-1;
     /* margin: 20px; */
 }
 
@@ -21,6 +24,7 @@
     align-items: center;
     margin: 1%;
     background-color: #e3e3e3;
+    z-index: 2;
 }
 
 .logo {
