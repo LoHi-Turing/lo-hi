@@ -19,6 +19,8 @@ const AllCategories = () => {
           <img className='category-img' src='https://cdn.shopify.com/s/files/1/0258/8531/products/Lemon_Bundt_Cake_grande.jpg?v=1564603405' alt='Cookies category'/>
           <Link to='/Cookie'className='links'>Cookie</Link>
         </div>
+      </section>
+      <section className='links-container'>
         <div className='categories-img-link'>
           <img className='category-img' src='https://cdn.shopify.com/s/files/1/0258/8531/products/Lemon_Bundt_Cake_grande.jpg?v=1564603405' alt='Muffin category'/>
           <Link to='/Muffin' className='links'>Muffin</Link>
