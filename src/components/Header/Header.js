@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import './Header.css';
 import { Link, useParams, useLocation } from 'react-router-dom';
 
+
 const Header = ({ location, elevation, humidity, updateLocation}) => {
 
   const [changeQuery, setChangeQuery] = useState('')
-  const { category } = useParams()
-  const { id } = useParams()
+  const { category, id } = useParams()
   const pageLocation = useLocation();
 
   const handleKeyPress = event => {
@@ -39,7 +39,7 @@ const Header = ({ location, elevation, humidity, updateLocation}) => {
           <img className='humidity-icon' src='images/humidity.svg' alt='Humidity Icon'/>
           <p className='p-humidity'>{humidity} %</p>
         </div>
-        <h1 className='company-name'>LoHi</h1>
+        <h1 className='company-name'><img src='images/LoHi-bluegrey.png' alt='logo'/></h1>
         <div className='nav-links'>
           {pageLocation.pathname === '/all-categories' && <Link to='/'>Home</Link>}
           {pageLocation.pathname === `/${category}` && <Link to='/all-categories'>Recipe Categories</Link>}
