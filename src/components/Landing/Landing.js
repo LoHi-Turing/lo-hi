@@ -10,7 +10,7 @@ const Landing = ({ updateLocation }) => {
             <img className='background-img'src='images/dough-kneading.jpg' alt='baking'/>
             {/* <img className='background-img'src='rolling-pin.jpg' alt='baking'/> */}
                 <section className='logo-and-search'>
-                    <img className='logo' src='images/LoHi.png' alt="LoHi logo"/>
+                    <img className='logo' src='images/LoHi-yellow.png' alt="LoHi logo"/>
                     <h1 className='catch-phrase'>Where your AlTituDe matters!</h1>
                     <Search updateLocation={updateLocation}/>
                     <h2 className='how-to-use'>How To Use LoHi</h2>
