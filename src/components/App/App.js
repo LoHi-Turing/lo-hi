@@ -9,6 +9,8 @@ import { getLocationData } from "../../utils/apiCalls";
 import './App.css';
 import RecipesByCategory from "../RecipesByCategory/RecipesByCategory";
 import allRecipesSampleData from "../../utils/allRecipesSampleData";
+import { getRecipeData } from '../../utils/apiCalls';
+
 
 const App = () => {
 
@@ -17,6 +19,8 @@ const App = () => {
   const [elevation, setElevation] = useState('')
   const [humidity, setHumidity] = useState('')
   const [error, setError] = useState('')
+  const [recipes, setRecipes] = useState([])
+
    
   const updateLocation = userInput => {
     setQuery(userInput);
@@ -38,6 +42,20 @@ const App = () => {
   useEffect(() => {    
     invokeLocationData()    
   },[query])
+
+  const invokeRecipeData = async() => {
+    try {
+      const res = await getRecipeData()
+      const returnedRecipeData = await res.json()
+      setRecipes(returnedRecipeData)
+    } catch (err) {
+      console.log('Error:', err)
+    }
+  }
+
+  useEffect(() => {
+    invokeRecipeData()
+  }, [])
   
   
   return (
