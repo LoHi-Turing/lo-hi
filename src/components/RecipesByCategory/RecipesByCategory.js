@@ -7,24 +7,23 @@ const RecipesByCategory = ({ categoryType, allRecipesData }) => {
 
     console.log(categoryType, allRecipesData.data[0])
 
-    const dataByCategory = allRecipesData.data.filter((recipe) => {
+    const dataByCategory = allRecipesData.data.filter((recipe) => recipe.attributes.category === categoryType).map(recipe =>
+      (
+        <RecipeCard 
+            key={ recipe.id }
+            id={ recipe.id }
+            category= { recipe.attributes.category }
+            title= { recipe.attributes.title }
+            // img= { mainImg }
+  
+        />
+    ))
 
-        // let mainImg = recipe.attributes.img[0]
-        if ( recipe.attributes.category == categoryType ) {
-            return (
-                <RecipeCard 
-                    key={ recipe.id }
-                    id={ recipe.id }
-                    category= { recipe.attributes.category }
-                    title= { recipe.attributes.title }
-                    // img= { mainImg }
+        // let mainImg = recipe.attributes.img[0]     
+                   
 
-                />
-            )
-        }
-    });
 
-    // console.log(dataByCategory)- 
+    console.log(dataByCategory)
     // it is returning the whole array not all the cards separate
     return (
         <main className='recipes-by-category'>
