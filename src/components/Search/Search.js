@@ -10,13 +10,13 @@ const Search = ({ updateLocation }) => {
         updateLocation(location)
     }
 
-    const handleKeyPress = e => {
-        console.log('yup')
-        if(e.key === 'Enter') {
-            e.preventDefault();
-            updateLocation(location);            
-        } 
-    }
+    // const handleKeyPress = e => {
+    //     console.log('yup')
+    //     if(e.key === 'Enter') {
+    //         e.preventDefault();
+    //         updateLocation(location);            
+    //     } 
+    // }
 
     return (
         <form className='search-field'>
