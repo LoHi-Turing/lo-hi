@@ -75,6 +75,11 @@
   width: 30px;
 }
 
+.header-logo {
+  width: 10%;
+  margin: 0;
+}
+
 .company-name {
   margin: 0;
   margin-left: 20vw;
