@@ -81,7 +81,7 @@ const App = () => {
           
         }/>
         <Route exact path="/:category" render={({ match }) => {
-            const categoryType = match.params.category
+            const categoryType = match.params.category;
             return (
             <section className='recipies-by-category'>
                 <Header
@@ -96,8 +96,9 @@ const App = () => {
             )}
         }/>
         <Route exact path="/:category/:id" render={({ match })=> {
-          const categoryType = match.params.category 
-          const recipeId = match.params.id         
+          const categoryType = match.params.category;
+          const recipeId = match.params.id;   
+          const currentRecipe = allRecipesSampleData.data.find(recipe => recipe.id === recipeId);
           return (
             <section className='recipie-details'>
              <Header
@@ -106,7 +107,10 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-             <RecipeDetails />
+             <RecipeDetails 
+                categoryType={categoryType}
+                recipeId={recipeId}
+                currentRecipe={currentRecipe}/>
              <Footer/>
             </section>
           )
