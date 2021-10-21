@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = ({ location, elevation, humidity, updateLocation}) => {
 
@@ -34,6 +35,9 @@ const Header = ({ location, elevation, humidity, updateLocation}) => {
           <p className='p-humidity'>{humidity} %</p>
         </div>
         <h1 className='company-name'>LoHi</h1>
+        <div className='nav-links'>
+          <Link to='/all-categories'>All Categories</Link>
+        </div>
       </div> 
     </section>
   )
