@@ -10,6 +10,7 @@ import './App.css';
 import RecipesByCategory from "../RecipesByCategory/RecipesByCategory";
 import allRecipesSampleData from "../../utils/allRecipesSampleData";
 import { getRecipeData } from '../../utils/apiCalls';
+import RecipeDetails from "../RecipeDetails/RecipeDetails";
 
 
 const App = () => {
@@ -94,19 +95,22 @@ const App = () => {
             </section>
             )}
         }/>
-        <Route exact path="/:category/:id" render={()=> {
+        <Route exact path="/:category/:id" render={({ match })=> {
+          const categoryType = match.params.category 
+          const recipeId = match.params.id         
+          return (
             <section className='recipie-details'>
-                {/* <Header
+             <Header
                 location={location}
                 elevation={elevation}
                 humidity={humidity}
                 updateLocation={updateLocation}
-              /> */}
-              {/* <RecipeDetails /> */}
-              {/* <Footer/> */} 
+              /> 
+             <RecipeDetails />
+             <Footer/>
             </section>
-          }
-        }/>
+          )
+        }}/>
       </Switch>
     </div>
   );
