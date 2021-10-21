@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './AllCategories.css';
 import { Link } from 'react-router-dom';
+import { getRecipeData } from '../../utils/apiCalls';
 
 const AllCategories = () => {
+
+  const [recipes, setRecipes] = useState([])
+
+  const invokeRecipeData = async() => {
+    try {
+      const res = await getRecipeData()
+      const returnedRecipeData = await res.json()
+      setRecipes(returnedRecipeData)
+    } catch (err) {
+      console.log('Error:', err)
+    }
+  }
+
+  useEffect(() => {
+    invokeRecipeData()
+  }, [])
+
   return (
     <main className='categories-display'>
       <h2 className='baking-categories-title'>Baking Categories</h2>
