@@ -36,7 +36,7 @@ const Header = ({ location, elevation, humidity, updateLocation}) => {
         </div>
         <h1 className='company-name'>LoHi</h1>
         <div className='nav-links'>
-          <Link to='/all-categories'>All Categories</Link>
+          <Link to='/all-categories'>Categories</Link>
         </div>
       </div> 
     </section>
