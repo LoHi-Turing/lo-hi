@@ -13,5 +13,5 @@ deploy:
   skip_cleanup: true
   domain: lohi.surge.sh
   project: ./build/
-on:
-  branch: main
+  on:
+    branch: main
