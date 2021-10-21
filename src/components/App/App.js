@@ -9,7 +9,7 @@ import { getLocationData } from "../../utils/apiCalls";
 import './App.css';
 import RecipesByCategory from "../RecipesByCategory/RecipesByCategory";
 import allRecipesSampleData from "../../utils/allRecipesSampleData";
-import { getRecipeData } from '../../utils/apiCalls';
+// import { getRecipeData } from '../../utils/apiCalls';
 import RecipeDetails from "../RecipeDetails/RecipeDetails";
 
 
@@ -19,44 +19,56 @@ const App = () => {
   const [location, setLocation] = useState('')
   const [elevation, setElevation] = useState('')
   const [humidity, setHumidity] = useState('')
-  const [error, setError] = useState('')
-  const [recipes, setRecipes] = useState([])
+  // const [error, setError] = useState('')
+  // const [recipes, setRecipes] = useState([])
 
    
   const updateLocation = userInput => {
     setQuery(userInput);
   }
 
-  const invokeLocationData = async() => {
-    try {
-      const res = await getLocationData(query)
-      const returnedLocationInfo = await res.json()
-      setLocation(returnedLocationInfo.data.attributes.city)
-      setElevation(returnedLocationInfo.data.attributes.elevation)
-      setHumidity(returnedLocationInfo.data.attributes.humidity)
+  // const invokeLocationData = async() => {
+  //   try {
+  //     const res = await getLocationData(query)
+  //     const returnedLocationInfo = await res.json()
+  //     setLocation(returnedLocationInfo.data.attributes.city)
+  //     setElevation(returnedLocationInfo.data.attributes.elevation)
+  //     setHumidity(returnedLocationInfo.data.attributes.humidity)
 
-    } catch (err) {
-      console.log('Error: ', err)
-    }
-  }
+  //   } catch (err) {
+  //     console.log('Error: ', err)
+  //   }
+  // }
 
-  useEffect(() => {    
+  useEffect(() => { 
+    const invokeLocationData = async() => {
+      try {
+        const res = await getLocationData(query)
+        const returnedLocationInfo = await res.json()
+        setLocation(returnedLocationInfo.data.attributes.city)
+        setElevation(returnedLocationInfo.data.attributes.elevation)
+        setHumidity(returnedLocationInfo.data.attributes.humidity)
+  
+      } catch (err) {
+        console.log('Error: ', err)
+      }
+    }   
     invokeLocationData()    
   },[query])
 
-  const invokeRecipeData = async() => {
-    try {
-      const res = await getRecipeData()
-      const returnedRecipeData = await res.json()
-      setRecipes(returnedRecipeData)
-    } catch (err) {
-      console.log('Error:', err)
-    }
-  }
+  // const invokeRecipeData = async() => {
+  //   try {
+  //     const res = await getRecipeData()
+  //     const returnedRecipeData = await res.json()
+  //     setRecipes(returnedRecipeData)
+  //   } catch (err) {
+  //     console.log('Error:', err)
+  //   }
+  // }
 
-  useEffect(() => {
-    invokeRecipeData()
-  }, [query])
+  // useEffect(() => {
+  //   invokeRecipeData()
+  // }, [query])
   
   
   return (
