@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import './Header.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 
 const Header = ({ location, elevation, humidity, updateLocation}) => {
 
   const [changeQuery, setChangeQuery] = useState('')
   const { category } = useParams()
+  const { id } = useParams()
+  const pageLocation = useLocation();
 
   const handleKeyPress = event => {
     if(event.key === 'Enter') {
@@ -39,8 +41,9 @@ const Header = ({ location, elevation, humidity, updateLocation}) => {
         </div>
         <h1 className='company-name'>LoHi</h1>
         <div className='nav-links'>
-          <Link to='/all-categories'>Categories</Link>
-          <Link to={`/${category}`}>{category}</Link>
+          {pageLocation.pathname === '/all-categories' && <Link to='/'>Home</Link>}
+          {pageLocation.pathname === `/${category}` && <Link to='/all-categories'>Recipe Categories</Link>}
+          {pageLocation.pathname === `/${category}/${id}` && <Link to={`/${category}`}>{category}</Link>}
         </div>
       </div> 
     </section>
