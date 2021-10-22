@@ -1,6 +1,6 @@
 describe('Home Page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+      cy.visit('http://localhost:3000')
       .get('.search-bar')
       .type('90210')
       .get('.mag-glass').click()

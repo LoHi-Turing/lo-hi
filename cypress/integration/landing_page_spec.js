@@ -1,6 +1,6 @@
 describe('Landing Page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.load()
   })
 
   it('Should navigate to the landing page and the user should see a Search bar', () => {
