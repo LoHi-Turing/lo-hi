@@ -1,16 +1,16 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { Route, Switch } from "react-router";
-import Landing from "../Landing/Landing";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router';
+import Landing from '../Landing/Landing';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import AllCategories from '../AllCategories/AllCategories';
-import { getLocationData } from "../../utils/apiCalls";
+import { getLocationData } from '../../utils/apiCalls';
 import './App.css';
-import RecipesByCategory from "../RecipesByCategory/RecipesByCategory";
-import allRecipesSampleData from "../../utils/allRecipesSampleData";
-// import { getRecipeData } from '../../utils/apiCalls';
-import RecipeDetails from "../RecipeDetails/RecipeDetails";
+import RecipesByCategory from '../RecipesByCategory/RecipesByCategory';
+// import allRecipesSampleData from '../../utils/allRecipesSampleData';
+import { getRecipeData } from '../../utils/apiCalls';
+import RecipeDetails from '../RecipeDetails/RecipeDetails';
 
 
 const App = () => {
@@ -19,26 +19,13 @@ const App = () => {
   const [location, setLocation] = useState('')
   const [elevation, setElevation] = useState('')
   const [humidity, setHumidity] = useState('')
-  // const [error, setError] = useState('')
-  // const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState([])
+  const [error, setError] = useState('')
 
    
   const updateLocation = userInput => {
     setQuery(userInput);
   }
-
-  // const invokeLocationData = async() => {
-  //   try {
-  //     const res = await getLocationData(query)
-  //     const returnedLocationInfo = await res.json()
-  //     setLocation(returnedLocationInfo.data.attributes.city)
-  //     setElevation(returnedLocationInfo.data.attributes.elevation)
-  //     setHumidity(returnedLocationInfo.data.attributes.humidity)
-
-  //   } catch (err) {
-  //     console.log('Error: ', err)
-  //   }
-  // }
 
   useEffect(() => { 
     const invokeLocationData = async() => {
@@ -56,30 +43,30 @@ const App = () => {
     invokeLocationData()    
   },[query])
 
-  // const invokeRecipeData = async() => {
-  //   try {
-  //     const res = await getRecipeData()
-  //     const returnedRecipeData = await res.json()
-  //     setRecipes(returnedRecipeData)
-  //   } catch (err) {
-  //     console.log('Error:', err)
-  //   }
-  // }
+  const invokeRecipeData = async() => {
+    try {
+      const res = await getRecipeData()
+      const returnedRecipeData = await res.json()
+      setRecipes(returnedRecipeData)
+    } catch (err) {
+      console.log('Error:', err)
+    }
+  }
 
-  // useEffect(() => {
-  //   invokeRecipeData()
-  // }, [query])
+  useEffect(() => {
+    invokeRecipeData()
+  }, [query])
   
   
   return (
-    <div className="App">
+    <div className='App'>
       <Switch>
         <Route exact path='/' render={() => (
             <section className='landing-page'>
               <Landing updateLocation={updateLocation}/>
             </section>
         )}/>
-        <Route exact path="/all-categories" render={() => 
+        <Route exact path='/all-categories' render={() => 
             <section className='categories-page'>
               <Header
                 location={location}
@@ -92,7 +79,7 @@ const App = () => {
             </section>
           
         }/>
-        <Route exact path="/:category" render={({ match }) => {
+        <Route exact path='/:category' render={({ match }) => {
             const categoryType = match.params.category;
             return (
             <section className='recipies-by-category'>
@@ -102,15 +89,17 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-              <RecipesByCategory categoryType={ categoryType } allRecipesData={ allRecipesSampleData }/>
+              <RecipesByCategory 
+                categoryType={ categoryType } 
+                allRecipesData={ recipes }/>
               <Footer/> 
             </section>
             )}
         }/>
-        <Route exact path="/:category/:id" render={({ match })=> {
+        <Route exact path='/:category/:id' render={({ match })=> {
           const categoryType = match.params.category;
           const recipeId = match.params.id;   
-          const currentRecipe = allRecipesSampleData.data.find(recipe => recipe.id === recipeId);
+          const currentRecipe = recipes.data.find(recipe => recipe.id === recipeId);
           return (
             <section className='recipie-details'>
              <Header
