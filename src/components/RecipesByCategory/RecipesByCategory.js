@@ -5,7 +5,7 @@ import './RecipesByCategory.css';
 
 const RecipesByCategory = ({ categoryType, allRecipesData }) => {
 
-    console.log(categoryType, allRecipesData.data[0])
+    // console.log(categoryType, allRecipesData.data[0])
 
     const dataByCategory = allRecipesData.data.filter((recipe) => recipe.attributes.category === categoryType).map(recipe =>
       (
