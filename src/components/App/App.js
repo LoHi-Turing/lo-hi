@@ -20,7 +20,7 @@ const App = () => {
   const [elevation, setElevation] = useState('')
   const [humidity, setHumidity] = useState('')
   const [recipes, setRecipes] = useState([])
-  const [error, setError] = useState('')
+  /*const [error, setError] = useState('')*/
 
    
   const updateLocation = userInput => {
