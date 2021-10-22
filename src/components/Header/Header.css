@@ -93,3 +93,6 @@
   color:#636161;
   margin: 5rem;
 }
+.nav-links a:hover {
+  color:#ffffff;
+}
