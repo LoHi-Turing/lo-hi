@@ -23,6 +23,7 @@
 .location-info {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100vw;
   max-height: 20vh;
   /* margin-left: 5%; */
@@ -33,7 +34,7 @@
   flex-direction: row;
   /* maybe: */
   justify-content: space-evenly;
-  width: 400px;
+  width: 20vw;
 }
 
 .p-location {
@@ -61,7 +62,7 @@
 }
 
 .elevation-icon {
-  width: 30px;
+  width: 25px;
   transform: rotate(270deg);
   -webkit-transform:rotate(270deg);
 }
@@ -76,7 +77,9 @@
 }
 
 .header-logo {
-  width: 10%;
+  /* width: 7vw; */
+  width: 80px;
+  /* width:20%; */
   margin: 0;
 }
 
@@ -85,4 +88,8 @@
   /* margin-left: 20vw; */
   /* margin-left: 330px; */
 
+}
+.nav-links a {
+  color:#636161;
+  margin: 5rem;
 }
