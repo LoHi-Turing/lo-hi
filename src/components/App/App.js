@@ -43,6 +43,7 @@ const App = () => {
     }   
     invokeLocationData()    
   },[query])
+  
 
   const invokeRecipeData = async() => {
     try {
