@@ -12,10 +12,16 @@ describe('Landing Page', () => {
       .get('.logo-and-search > :nth-child(5)').should('contain', 'With this website you will be able to have recipies')
   })
 
-  it('Should have an input that accepts a city or zip code input', () => {
+  it('Should have an input that accepts a zip code input', () => {
     cy.get('.search-bar')
       .type('80504')
       .should('have.value', '80504')
+  })
+
+  it('Should have an input that accepts a city name input', () => {
+    cy.get('.search-bar')
+      .type('Austin')
+      .should('have.value', 'Austin')
   })
 
   it('Should route to the categories page when "Enter" has been selected', () => {
