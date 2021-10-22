@@ -32,6 +32,7 @@
 .location-data {
   display: flex;
   flex-direction: row;
+  color: #ffffff;
   /* maybe: */
   justify-content: space-evenly;
   width: 20vw;
