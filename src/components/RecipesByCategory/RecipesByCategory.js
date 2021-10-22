@@ -23,7 +23,7 @@ const RecipesByCategory = ({ categoryType, allRecipesData }) => {
                    
 
 
-    console.log(dataByCategory)
+    // console.log(dataByCategory)
     // it is returning the whole array not all the cards separate
     return (
         <main className='recipes-by-category'>
