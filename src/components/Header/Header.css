@@ -30,6 +30,7 @@
 .location-data {
   display: flex;
   flex-direction: row;
+  align-items: center;
   color: #ffffff;
   justify-content: space-evenly;
   width: 20vw;
@@ -60,9 +61,10 @@
 }
 
 .elevation-icon {
-  width: 25px;
+  width: 21px;
   transform: rotate(270deg);
   -webkit-transform:rotate(270deg);
+  text-align: center;
 }
 
 .p-humidity {
@@ -81,11 +83,12 @@
 
 .company-name {
   margin: 0;
+  padding: 1px;
 }
 
 .nav-links a {
   color:#636161;
-  margin: 5rem;
+  padding: 2rem;
 }
 
 .nav-links a:hover {
