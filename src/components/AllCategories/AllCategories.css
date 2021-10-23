@@ -18,6 +18,7 @@
 .links-container-line2 {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .categories-img-link {
