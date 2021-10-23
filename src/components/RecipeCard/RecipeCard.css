@@ -1,3 +1,27 @@
 .recipe-card-main-img {
-  width: 30%;
+  width: 20%;
+}
+
+.recipe-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5rem;
+  color:gray;
+}
+
+.recipe-card-main-img-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+
+.recipe-card-title {
+  font-size: 16px;
+  color:gray;
+}
+
+.recipe-card-title:hover {
+  font-size: 18px;
+  color:#d28b39c9;
 }
