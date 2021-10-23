@@ -40,5 +40,15 @@ describe('Recipe Details', () => {
       .get('ul > :nth-child(9)').should('contain', 'Cinnamon')
   })
 
-  
+  it('Should have an Instruction title', () => {
+    cy.get('.recipe-details-main-img-container > :nth-child(5)').should('contain', 'Instruction')
+  })
+
+  it('Should provide preparation instructions', () => {
+    cy.get('.recipe-details-main-img-container > :nth-child(6)').should('contain', 'Preheat the oven to 350ºF')
+  })
+
+  it('Should display a cook time', () => {
+    cy.get('.recipe-details-main-img-container > :nth-child(7)').should('contain', '1 HOUR 5 MINUTES')
+  })
 })

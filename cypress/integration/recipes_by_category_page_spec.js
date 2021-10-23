@@ -20,7 +20,7 @@ describe('Recipes by Category', () => {
   })
 
   it('Should contain a link to return to the home page', () => {
-    cy.get('.nav-links > a').should('contain', 'Recipe Categories').click()
+    cy.get('.nav-links > a').should('contain', 'Categories').click()
       .url().should('include', 'all-categories')
   })
 
@@ -33,12 +33,12 @@ describe('Recipes by Category', () => {
   })
 
   it('Should display the recipe title', () => {
-    cy.get('.recipie-card-title').should('contain', 'Chocolate Chip Banana Bread')
+    cy.get('.recipe-card-title').should('contain', 'Chocolate Chip Banana Bread')
   })
 
   it('Should navigate to the recipe details page when the card is selected', () => {
-    cy.get('.recipie-card-title').click()
-      .url().should('include', '6')
+    cy.get('.recipe-card-title').click()
+      .url().should('include', '1')
       .get('.recipe-details-main-img-container').should('be.visible')
   })
 })
