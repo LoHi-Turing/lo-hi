@@ -5,6 +5,12 @@
   height: auto;
 }
 
+.recipe-details-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .recipe-details-main-img {
   width: 50%;
   height: auto;
@@ -14,18 +20,26 @@
 .recipe-details-main-container {
   display: flex;
   height: 50%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-right: 5%;
+}
+
+.recipie-details-title,
+.recipe-details-ingredient-title {
+  text-align: start;
+  font-size: 1em;
 }
 
 .recipe-details-cook-time {
   margin: 0;
-  text-align: end;
-  font-size: 1em;
+  text-align: start;
+  font-size: .5em;
 }
 
 ul {
   list-style: none;
   padding-left: 0pt;
   list-style-position: outside;
+  text-align: start;
+  font-size: 0.6em;
 }
