@@ -15,7 +15,8 @@
   align-items: baseline;
   padding-top: 10px;
   width: 100vw;
-  min-height: 4vh;
+  /* min-height: 4vh; */
+  min-height: 40%;
   background-color: #e3e3e3;
 }
 
@@ -24,7 +25,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100vw;
-  max-height: 20vh;
+  /* max-height: 20vh; */
+  min-height: 60%;
 }
 
 .location-data {
@@ -84,6 +86,7 @@
 .company-name {
   margin: 0;
   padding: 1px;
+  padding-right: 7rem;
 }
 
 .nav-links a {
