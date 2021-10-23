@@ -10,7 +10,7 @@ const AllCategories = () => {
       <h2 className='baking-categories-title'>Baking Categories</h2>
       <section className='links-container-line1'>
         <div className='categories-img-link'>
-          <img className='category-img' src='https://media.istockphoto.com/vectors/birthday-cake-vector-vector-id1144957667' alt='Cakes category'/>
+          <img className='category-img' src='images/Cake.svg' alt='Cakes category'/>
           <Link to='/Cake' className='links'>Cake</Link>
         </div>
         <div className='categories-img-link'>
