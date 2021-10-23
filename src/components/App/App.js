@@ -36,13 +36,23 @@ const App = () => {
         setLocation(returnedLocationInfo.data.attributes.city)
         setElevation(returnedLocationInfo.data.attributes.elevation)
         setHumidity(returnedLocationInfo.data.attributes.humidity)
-  
+        console.log("before save to local storage*******", localStorage)
+        saveToLocalStorage('currentAreaInfo', { locationInfo: location, elevationInfo: elevation, humidityInfo: humidity })    
+        console.log("After S to LS -----------",localStorage)
       } catch (err) {
         console.log('Error: ', err)
       }
-    }   
-    invokeLocationData()    
+    }
+    
+    // getFromLocalStorage('currentAreaInfo')  
+    invokeLocationData()
   },[query])
+
+  useEffect(() => {
+    if(localStorage) {
+      getFromLocalStorage('currentAreaInfo')  
+    }
+  },[])
   
 
   const invokeRecipeData = async() => {
@@ -59,6 +69,17 @@ const App = () => {
     invokeRecipeData()
   }, [query])
   
+  const saveToLocalStorage = (item, value) => {
+    localStorage.setItem(item, JSON.stringify(value))
+  }
+
+  const getFromLocalStorage = (item) => {
+    let storedLocation = JSON.parse(localStorage.getItem(item))
+    console.log(storedLocation.locationInfo)
+    setLocation(storedLocation.locationInfo)
+    setElevation(storedLocation.elevationInfo)
+    setHumidity(storedLocation.humidityInfo)
+  }
   
   return (
     <div className='App'>
