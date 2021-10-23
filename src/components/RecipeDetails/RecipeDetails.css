@@ -28,7 +28,7 @@
 .recipe-details-ingredient-title {
   text-align: start;
   font-size: 1em;
-  margin-top: 5%;
+  margin: 5% 0 1.5% 0;
 }
 
 .recipe-details-cook-time {
@@ -43,6 +43,7 @@ ul {
   list-style-position: outside;
   text-align: start;
   font-size: 0.6em;
+  margin: 0;
 }
 
 .recipe-details-instructions {
