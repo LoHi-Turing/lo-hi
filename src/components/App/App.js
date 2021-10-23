@@ -32,15 +32,15 @@ const App = () => {
       try {
         const res = await getLocationData(query)
         const returnedLocationInfo = await res.json()
-        console.log(returnedLocationInfo)
-        setLocation(returnedLocationInfo.data.attributes.city)
-        setElevation(returnedLocationInfo.data.attributes.elevation)
-        setHumidity(returnedLocationInfo.data.attributes.humidity)
+        settingInfo(returnedLocationInfo)
+        // setLocation(returnedLocationInfo.data.attributes.city)
+        // setElevation(returnedLocationInfo.data.attributes.elevation)
+        // setHumidity(returnedLocationInfo.data.attributes.humidity)
         console.log(location)
         // console.log("before save to local storage*******", localStorage)
         // // saveToLocalStorage('currentAreaInfo', { locationInfo: location, elevationInfo: elevation, humidityInfo: humidity })    
         // console.log("After S to LS -----------",localStorage)
-        console.log(location)
+        console.log(location, elevation)
       } catch (err) {
         console.log('Error: ', err)
       }
@@ -48,17 +48,26 @@ const App = () => {
     
     // getFromLocalStorage('currentAreaInfo')  
     invokeLocationData()
-    console.log('location++++++++', location)
   },[query])
+  
+  const settingInfo =(allinfo) => {
+    console.log(allinfo)
+    setLocation(allinfo.data.attributes.city)
+    setElevation(allinfo.data.attributes.elevation)
+    setHumidity(allinfo.data.attributes.humidity)
+    saveToLocalStorage('currentAreaInfo', { locationInfo: location, elevationInfo: elevation, humidityInfo: humidity })  
+    console.log('location++++++++', location)
+    
+  }
 
-  useEffect(() => {
-    if(location) {
-      saveToLocalStorage('currentAreaInfo', { locationInfo: location, elevationInfo: elevation, humidityInfo: humidity })  
-    }
-    if(localStorage) {
-      getFromLocalStorage('currentAreaInfo')  
-    }
-  },[location, elevation, humidity])
+  // useEffect(() => {
+  //   if(location) {
+  //     saveToLocalStorage('currentAreaInfo', { locationInfo: location, elevationInfo: elevation, humidityInfo: humidity })  
+  //   }
+  //   if(localStorage) {
+  //     getFromLocalStorage('currentAreaInfo')  
+  //   }
+  // },[location, elevation])
   
 
   const invokeRecipeData = async() => {
