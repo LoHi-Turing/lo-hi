@@ -32,6 +32,7 @@ const App = () => {
       try {
         const res = await getLocationData(query)
         const returnedLocationInfo = await res.json()
+        console.log(returnedLocationInfo)
         setLocation(returnedLocationInfo.data.attributes.city)
         setElevation(returnedLocationInfo.data.attributes.elevation)
         setHumidity(returnedLocationInfo.data.attributes.humidity)
