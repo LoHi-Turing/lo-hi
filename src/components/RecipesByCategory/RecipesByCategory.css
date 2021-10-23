@@ -1,6 +1,8 @@
-/* .recipes-by-category{
-
-} */
+.recipes-by-category{
+    height: 73vh;
+    width: 100vw;
+    margin: 0;
+}
 
 .category-title {
     color:gray;
