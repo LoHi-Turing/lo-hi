@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 78vh;
-  background-color: #9e9e9e1a; 
+  background-color: #f3f0f000; 
 }
 
 .baking-categories-title {
@@ -12,14 +12,12 @@
 .links-container-line1 {
   display: flex;
   justify-content: center;
-  /* margin: 10%; */
-  /* color:black; */
   margin-top: 0 5% 10%;
 }
+
 .links-container-line2 {
   display: flex;
   justify-content: center;
-  /* margin: 0 10%; */
 }
 
 .categories-img-link {
@@ -31,7 +29,6 @@
 }
 
 .category-img {
-  /* border: 3px solid gray; */
   border-radius: 50%;
   width: 40%;
 }

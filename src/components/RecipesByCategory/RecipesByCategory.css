@@ -1,9 +1,10 @@
 .recipes-by-category{
-    height: 73vh;
+    height: 74vh;
     width: 100vw;
     margin: 0;
 }
 
 .category-title {
     color:gray;
+    /* margin-top:5px; */
 }
