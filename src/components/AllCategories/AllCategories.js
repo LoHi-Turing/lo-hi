@@ -14,7 +14,7 @@ const AllCategories = () => {
           <Link to='/Cake' className='links'>Cake</Link>
         </div>
         <div className='categories-img-link'>
-          <img className='category-img' src='https://cdn.leitesculinaria.com/wp-content/uploads/2016/01/five-minute-artisan-bread-recipe.jpg.webp' alt='Bread category'/>
+          <img className='category-img' src='images/Bread.svg' alt='Bread category'/>
           <Link to='/Bread' className='links'>Bread</Link>
         </div>
         <div className='categories-img-link'>
