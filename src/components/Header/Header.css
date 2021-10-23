@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* color: #f2b66f; */
   color: #636161;
   height: 12vh;
   background-color: #e19634;
@@ -26,14 +25,12 @@
   justify-content: space-between;
   width: 100vw;
   max-height: 20vh;
-  /* margin-left: 5%; */
 }
 
 .location-data {
   display: flex;
   flex-direction: row;
   color: #ffffff;
-  /* maybe: */
   justify-content: space-evenly;
   width: 20vw;
 }
@@ -78,22 +75,19 @@
 }
 
 .header-logo {
-  /* width: 7vw; */
   width: 80px;
-  /* width:20%; */
   margin: 0;
 }
 
 .company-name {
   margin: 0;
-  /* margin-left: 20vw; */
-  /* margin-left: 330px; */
-
 }
+
 .nav-links a {
   color:#636161;
   margin: 5rem;
 }
+
 .nav-links a:hover {
   color:#ffffff;
 }
