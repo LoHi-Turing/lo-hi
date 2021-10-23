@@ -6,7 +6,7 @@ const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
     <li>{ingredient}</li>
   ))
   return (
-    <section className='recipe-details'>
+    <section className='recipe-details text-focus-in'>
         <div className='recipe-details-main-container'>
           <div className='recipe-details-images'>
             <img className='recipe-details-main-img' src='https://cdn.shopify.com/s/files/1/0258/8531/products/Lemon_Bundt_Cake_grande.jpg?v=1564603405' alt='baked good'/>
