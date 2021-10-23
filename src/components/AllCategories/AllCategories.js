@@ -18,17 +18,17 @@ const AllCategories = () => {
           <Link to='/Bread' className='links'>Bread</Link>
         </div>
         <div className='categories-img-link'>
-          <img className='category-img' src='images/muffin.png' alt='Cookies category'/>
+          <img className='category-img' src='images/Cookie.svg' alt='Cookies category'/>
           <Link to='/Cookie'className='links'>Cookie</Link>
         </div>
       </section>
       <section className='links-container-line2'>
         <div className='categories-img-link'>
-          <img className='category-img' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZtEVmn0gbLTs9_owYEKIiMK2ueWl9tk9lVvEsCcL46uKlkolaEA4NB_iAqfuH5cXiPrc&usqp=CAU' alt='Muffin category'/>
+          <img className='category-img' src='images/Muffin Tin.svg' alt='Muffin category'/>
           <Link to='/Muffin' className='links'>Muffin</Link>
         </div>
         <div className='categories-img-link'>
-          <img className='category-img' src='https://media.istockphoto.com/vectors/pancakes-with-maple-syrup-outline-illustration-vector-id1312306188' alt='Pancakes category'/>
+          <img className='category-img' src='images/Pancakes.svg' alt='Pancakes category'/>
           <Link to='/Pancakes' className='links'>Pancakes</Link>
         </div>
       </section>
