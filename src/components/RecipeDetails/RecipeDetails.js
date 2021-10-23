@@ -22,9 +22,9 @@ const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
             </div>
           </div>
         </div>
-        <div className='recipe-method'>
-          <h3>Instructions</h3>
-          <p>{currentRecipe.attributes.description}</p>     
+        <div className='recipe-details-instructions'>
+          <h3 className='recipe-details-instructions-title'>Instructions</h3>
+          <p className='recipe-details-description'>{currentRecipe.attributes.description}</p>     
         </div>      
     </section>
   )
