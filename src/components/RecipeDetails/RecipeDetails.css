@@ -1,7 +1,31 @@
-.recipe-details-container {
-  height: 72vh;
+
+.recipe-details-main-container {
+  
+  width: 100%;
+  height: auto;
 }
 
 .recipe-details-main-img {
-  width: 30%;
+  width: 50%;
+  height: auto;
+  margin: 5%;
+}
+
+.recipe-details-main-container {
+  display: flex;
+  height: 50%;
+  justify-content: space-around;
+  margin-right: 5%;
+}
+
+.recipe-details-cook-time {
+  margin: 0;
+  text-align: end;
+  font-size: 1em;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0pt;
+  list-style-position: outside;
 }
