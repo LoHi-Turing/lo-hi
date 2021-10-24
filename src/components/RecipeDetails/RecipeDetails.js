@@ -2,9 +2,12 @@ import React from 'react';
 import './RecipeDetails.css';
 
 const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
-  const ingredientList = currentRecipe.attributes.ingredients.map(ingredient => (
-    <li>{ingredient}</li>
-  ))
+  // const ingredientList = currentRecipe.attributes.ingredients.map(ingredient => (
+  //   <li>{ingredient}</li>
+  const ingredientNames = currentRecipe.attributes.ingredients.map(ingredient => <li>{Object.keys(ingredient)}</li>)
+  const ingredientAmounts = currentRecipe.attributes.ingredients.map(ingredient => <li>{Object.values(ingredient)}</li>)
+    console.log(ingredientAmounts)
+
   return (
     <section className='recipe-details'>
         <div className='recipe-details-main-container'>
@@ -18,7 +21,8 @@ const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
             </div>
             <div className='recipe-details-ingredients'>
               <h3 className='recipe-details-ingredient-title'>Ingredients</h3>   
-              <ul>{ingredientList}</ul>
+              <ul>{ingredientNames}</ul>
+              <ul>{ingredientAmounts}</ul>
             </div>
           </div>
         </div>
