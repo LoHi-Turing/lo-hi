@@ -11,6 +11,7 @@ import RecipesByCategory from '../RecipesByCategory/RecipesByCategory';
 // import allRecipesSampleData from '../../utils/allRecipesSampleData';
 import { getRecipeData } from '../../utils/apiCalls';
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
+import Error from '../Error/Error';
 
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
   const [elevation, setElevation] = useState('')
   const [humidity, setHumidity] = useState('')
   const [recipes, setRecipes] = useState([])
-  /*const [error, setError] = useState('')*/
+  const [error, setError] = useState('')
 
    
   const updateLocation = userInput => {
@@ -37,7 +38,8 @@ const App = () => {
         setElevation(returnedLocationInfo.data.attributes.elevation)
         setHumidity(returnedLocationInfo.data.attributes.humidity)  
       } catch (err) {
-        console.log('Error: ', err)
+        setError(err)
+        // console.log('Error: ', err)
       }
     }   
     invokeLocationData()    
@@ -51,7 +53,8 @@ const App = () => {
       setRecipes(returnedRecipeData)
       setLoading(false)
     } catch (err) {
-      console.log('Error:', err)
+      setError(err)
+      // console.log('Error:', err)
     }
   }
 
@@ -65,7 +68,8 @@ const App = () => {
       setElevation(returnedLocationInfo.data.attributes.elevation)
       setHumidity(returnedLocationInfo.data.attributes.humidity) 
     } catch (err) {
-      console.log('Error', err)
+      setError(err)
+      // console.log('Error', err)
     }
   }
     if(localStorage) {
@@ -99,6 +103,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => (
             <section className='landing-page'>
+            { error && <Error/> }
               <Landing updateLocation={updateLocation}/>
             </section>
         )}/>
@@ -110,6 +115,7 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               />
+              { error && <Error/> }
               <AllCategories/>
               <Footer/>
             </section>
@@ -125,7 +131,8 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-              {!isLoading && <RecipesByCategory 
+              { error && <Error/> }
+              {(!isLoading && !error) && <RecipesByCategory 
                 categoryType={ categoryType } 
                 allRecipesData={ recipes }/>}
               <Footer/> 
@@ -144,6 +151,7 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
+             { error && <Error/> }
              <RecipeDetails 
                 categoryType={categoryType}
                 recipeId={recipeId}
