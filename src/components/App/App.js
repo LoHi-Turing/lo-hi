@@ -32,17 +32,17 @@ const App = () => {
       try {
         const res = await getLocationData(query)
         const returnedLocationInfo = await res.json()
-        console.log(returnedLocationInfo)
+        console.log(returnedLocationInfo, 'here')
         setLocation(returnedLocationInfo.data.attributes.city)
         setElevation(returnedLocationInfo.data.attributes.elevation)
-        setHumidity(returnedLocationInfo.data.attributes.humidity)
-  
+        setHumidity(returnedLocationInfo.data.attributes.humidity)  
+        console.log(location)
       } catch (err) {
         console.log('Error: ', err)
       }
     }   
     invokeLocationData()    
-  },[query])
+  },[query, location])
   
 
   const invokeRecipeData = async() => {
@@ -56,9 +56,36 @@ const App = () => {
   }
 
   useEffect(() => {
+    const retrieveLocationLocalStorage = async() => {
+      const storedLocation = JSON.parse(localStorage.getItem('location'))
+      try {      
+      const res = await getLocationData(storedLocation)
+      const returnedLocationInfo = await res.json()
+      setLocation(returnedLocationInfo.data.attributes.city)
+      setElevation(returnedLocationInfo.data.attributes.elevation)
+      setHumidity(returnedLocationInfo.data.attributes.humidity) 
+    } catch (err) {
+      console.log('Error', err)
+    }
+  }
+    if(localStorage) {
+      retrieveLocationLocalStorage()
+    }
     invokeRecipeData()
-  }, [query])
+  }, [])
+
+  useEffect(() => {
+
+    const storeLocation = () => {
+      localStorage.setItem('location', JSON.stringify(location))
+      localStorage.setItem('elevation', JSON.stringify(elevation))
+      localStorage.setItem('humidity', JSON.stringify(humidity))
+    }
+
+    storeLocation()
+  },[location, elevation, humidity])
   
+ 
   
   return (
     <div className='App'>
