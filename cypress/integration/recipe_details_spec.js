@@ -41,14 +41,14 @@ describe('Recipe Details', () => {
   })
 
   it('Should have an Instruction title', () => {
-    cy.get('.recipe-details-main-img-container > :nth-child(5)').should('contain', 'Instruction')
+    cy.get('.recipe-details-instructions-title').should('contain', 'Instruction')
   })
 
   it('Should provide preparation instructions', () => {
-    cy.get('.recipe-details-main-img-container > :nth-child(6)').should('contain', 'Preheat the oven to 350ºF')
+    cy.get('.recipe-details-description > :nth-child(1)').should('contain', 'Preheat the oven to 350ºF')
   })
 
   it('Should display a cook time', () => {
-    cy.get('.recipe-details-main-img-container > :nth-child(7)').should('contain', '1 HOUR 5 MINUTES')
+    cy.get('.recipe-details-cook-time').should('contain', '1 HOUR 5 MINUTES')
   })
 })

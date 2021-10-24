@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './RecipeDetails.css';
 
-const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
+const RecipeDetails = ({ currentRecipe }) => {
+
+    useEffect(() => {
+      if(localStorage.chosenRecipe) {
+        JSON.parse(localStorage.getItem('chosenRecipe'))      
+      } else {
+        localStorage.setItem('chosenRecipe', JSON.stringify(currentRecipe))
+      }
+    }, [currentRecipe])
+
   const ingredientNames = currentRecipe.attributes.ingredients.map(ingredient => <li>{Object.keys(ingredient)}</li>)
   const ingredientAmounts = currentRecipe.attributes.ingredients.map(ingredient => <li>{Object.values(ingredient)}</li>)
-    console.log(ingredientAmounts)
   const methodInstructions = currentRecipe.attributes.description.map(step => <li className='method-steps'>{step}</li>)
 
   return (

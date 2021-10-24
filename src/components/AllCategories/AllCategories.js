@@ -19,7 +19,7 @@ const AllCategories = () => {
         </div>
         <div className='categories-img-link'>
           <img className='category-img' src='images/Cookie.svg' alt='Cookies category'/>
-          <Link to='/Cookie'className='links'>Cookie</Link>
+          <Link to='/Cookies'className='links'>Cookies</Link>
         </div>
       </section>
       <section className='links-container-line2'>

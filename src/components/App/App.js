@@ -15,6 +15,7 @@ import RecipeDetails from '../RecipeDetails/RecipeDetails';
 
 const App = () => {
 
+  const [isLoading, setLoading] = useState(true)
   const [query, setQuery] = useState('')
   const [location, setLocation] = useState('')
   const [elevation, setElevation] = useState('')
@@ -32,17 +33,15 @@ const App = () => {
       try {
         const res = await getLocationData(query)
         const returnedLocationInfo = await res.json()
-        console.log(returnedLocationInfo)
         setLocation(returnedLocationInfo.data.attributes.city)
         setElevation(returnedLocationInfo.data.attributes.elevation)
-        setHumidity(returnedLocationInfo.data.attributes.humidity)
-  
+        setHumidity(returnedLocationInfo.data.attributes.humidity)  
       } catch (err) {
         console.log('Error: ', err)
       }
     }   
     invokeLocationData()    
-  },[query])
+  },[query, location])
   
 
   const invokeRecipeData = async() => {
@@ -50,15 +49,50 @@ const App = () => {
       const res = await getRecipeData()
       const returnedRecipeData = await res.json()
       setRecipes(returnedRecipeData)
+      setLoading(false)
     } catch (err) {
       console.log('Error:', err)
     }
   }
 
   useEffect(() => {
+    const retrieveLocationLocalStorage = async() => {
+      const storedLocation = JSON.parse(localStorage.getItem('location'))
+      try {      
+      const res = await getLocationData(storedLocation)
+      const returnedLocationInfo = await res.json()
+      setLocation(returnedLocationInfo.data.attributes.city)
+      setElevation(returnedLocationInfo.data.attributes.elevation)
+      setHumidity(returnedLocationInfo.data.attributes.humidity) 
+    } catch (err) {
+      console.log('Error', err)
+    }
+  }
+    if(localStorage) {
+      retrieveLocationLocalStorage()
+    }
     invokeRecipeData()
-  }, [query])
+  }, [])
+
+  useEffect(() => {
+    const storeLocation = () => {
+      localStorage.setItem('location', JSON.stringify(location))
+      localStorage.setItem('elevation', JSON.stringify(elevation))
+      localStorage.setItem('humidity', JSON.stringify(humidity))
+    }
+    storeLocation()
+  },[location, elevation, humidity])
   
+  const identifyCurrentRecipe = (theId) => {
+    if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId) {
+      return JSON.parse(localStorage.getItem('chosenRecipe'))      
+    } else {
+      const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
+      localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
+      return foundRecipe;
+    }
+  }
+ 
   
   return (
     <div className='App'>
@@ -91,17 +125,17 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-              <RecipesByCategory 
+              {!isLoading && <RecipesByCategory 
                 categoryType={ categoryType } 
-                allRecipesData={ recipes }/>
+                allRecipesData={ recipes }/>}
               <Footer/> 
             </section>
             )}
         }/>
         <Route exact path='/:category/:id' render={({ match })=> {
-          const categoryType = match.params.category;
-          const recipeId = match.params.id;   
-          const currentRecipe = recipes.data.find(recipe => recipe.id === recipeId);
+          const categoryType = match.params.category;         
+          const recipeId = match.params.id; 
+          const currentRecipe = identifyCurrentRecipe(recipeId)
           return (
             <section className='recipie-details'>
              <Header
