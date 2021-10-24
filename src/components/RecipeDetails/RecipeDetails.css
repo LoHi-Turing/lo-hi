@@ -47,6 +47,14 @@
   justify-content: center;
 }
 
+.ingredient-information {
+  display: flex;
+}
+
+.recipe-details-ingredient-names {
+  margin-right: 4%;
+}
+
 ul {
   list-style: none;
   padding-left: 0pt;
