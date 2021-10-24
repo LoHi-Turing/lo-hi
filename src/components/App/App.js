@@ -138,7 +138,7 @@ const App = () => {
           const categoryType = match.params.category;         
           const recipeId = match.params.id; 
           const currentRecipe = identifyCurrentRecipe(recipeId)
-          console.log(currentRecipe)
+          // console.log(currentRecipe)
           return (
             <section className='recipie-details'>
              <Header
