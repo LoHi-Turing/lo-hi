@@ -14,3 +14,12 @@
 .footer-logo {
   width: 4%;
 }
+
+/* ****** IphoneX ******* */
+@media only screen and (max-width:600px ){
+
+  .footer-logo {
+    width: 20%;
+  }
+  
+}
