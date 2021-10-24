@@ -97,3 +97,27 @@
 .nav-links a:hover {
   color:#ffffff;
 }
+
+
+/* ****** IphoneX ******* */
+@media only screen and (max-width:600px ){
+
+  .location-data {
+    justify-content: flex-start;
+    width: 40vw;
+    padding: 2px;
+  }
+    
+  .company-name {
+    padding-right: 0;
+  }
+
+  .p-elevation {
+    font-size: 20px;
+  }
+
+  .p-humidity {
+    font-size: 20px;
+  }
+  
+}
