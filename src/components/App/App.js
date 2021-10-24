@@ -11,6 +11,7 @@ import RecipesByCategory from '../RecipesByCategory/RecipesByCategory';
 // import allRecipesSampleData from '../../utils/allRecipesSampleData';
 import { getRecipeData } from '../../utils/apiCalls';
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
+import { set } from 'lodash';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
   const [elevation, setElevation] = useState('')
   const [humidity, setHumidity] = useState('')
   const [recipes, setRecipes] = useState([])
+  const [chosenRecipe, setChosenRecipe] = useState({})
   /*const [error, setError] = useState('')*/
 
    
@@ -75,7 +77,6 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-
     const storeLocation = () => {
       localStorage.setItem('location', JSON.stringify(location))
       localStorage.setItem('elevation', JSON.stringify(elevation))
@@ -85,6 +86,17 @@ const App = () => {
     storeLocation()
   },[location, elevation, humidity])
   
+  const identifyCurrentRecipe = (theId) => {
+    if(localStorage.chosenRecipe) {
+      console.log('in storage?')
+      return JSON.parse(localStorage.getItem('chosenRecipe'))      
+    } else {
+      console.log(theId, recipes[0])
+      const foundRecipe =  recipes.data.find(recipe => recipe.id == theId)  
+      localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
+      return foundRecipe;
+    }
+  }
  
   
   return (
@@ -126,9 +138,10 @@ const App = () => {
             )}
         }/>
         <Route exact path='/:category/:id' render={({ match })=> {
-          const categoryType = match.params.category;
-          const recipeId = match.params.id;   
-          const currentRecipe = recipes.data.find(recipe => recipe.id === recipeId);
+          const categoryType = match.params.category;         
+          const recipeId = match.params.id; 
+          const currentRecipe = identifyCurrentRecipe(recipeId)
+          console.log(currentRecipe)
           return (
             <section className='recipie-details'>
              <Header
