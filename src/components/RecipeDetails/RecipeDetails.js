@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import './RecipeDetails.css';
 
 const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
+
+  const [chosenRecipe, setChosenRecipe] = useState({})
+
   const ingredientList = currentRecipe.attributes.ingredients.map(ingredient => (
     <li>{ingredient}</li>
   ))
+
+    useEffect(() => {
+      if(localStorage.chosenRecipe) {
+        const storedRecipe = JSON.parse(localStorage.getItem('chosenRecipe'))
+        setChosenRecipe(storedRecipe)
+      } else {
+        localStorage.setItem('chosenRecipe', JSON.stringify(currentRecipe))
+      }
+    }, [currentRecipe])
+
   return (
     <section className='recipe-details'>
         <div className='recipe-details-main-container'>
@@ -18,7 +31,7 @@ const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
             </div>
             <div className='recipe-details-ingredients'>
               <h3 className='recipe-details-ingredient-title'>Ingredients</h3>   
-              <ul>{ingredientList}</ul>
+            
             </div>
           </div>
         </div>
