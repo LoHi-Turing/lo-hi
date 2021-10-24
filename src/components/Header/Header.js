@@ -35,7 +35,7 @@ const Header = ({ location, elevation, humidity, updateLocation}) => {
       <div className='location-info'>
         <div className='location-data'>
           <img className='elevation-icon' src='images/arrows.svg' alt='Elevation Icon'/>
-          <p className='p-elevation'>{elevation} m<sup>2</sup></p>
+          <p className='p-elevation'>{elevation} ft</p>
           <img className='humidity-icon' src='images/humidity.svg' alt='Humidity Icon'/>
           <p className='p-humidity'>{humidity} %</p>
         </div>
