@@ -16,12 +16,12 @@ import { set } from 'lodash';
 
 const App = () => {
 
+  const [isLoading, setLoading] = useState(true)
   const [query, setQuery] = useState('')
   const [location, setLocation] = useState('')
   const [elevation, setElevation] = useState('')
   const [humidity, setHumidity] = useState('')
   const [recipes, setRecipes] = useState([])
-  const [chosenRecipe, setChosenRecipe] = useState({})
   /*const [error, setError] = useState('')*/
 
    
@@ -38,7 +38,6 @@ const App = () => {
         setLocation(returnedLocationInfo.data.attributes.city)
         setElevation(returnedLocationInfo.data.attributes.elevation)
         setHumidity(returnedLocationInfo.data.attributes.humidity)  
-        console.log(location)
       } catch (err) {
         console.log('Error: ', err)
       }
@@ -52,6 +51,7 @@ const App = () => {
       const res = await getRecipeData()
       const returnedRecipeData = await res.json()
       setRecipes(returnedRecipeData)
+      setLoading(false)
     } catch (err) {
       console.log('Error:', err)
     }
@@ -82,17 +82,14 @@ const App = () => {
       localStorage.setItem('elevation', JSON.stringify(elevation))
       localStorage.setItem('humidity', JSON.stringify(humidity))
     }
-
     storeLocation()
   },[location, elevation, humidity])
   
   const identifyCurrentRecipe = (theId) => {
-    if(localStorage.chosenRecipe) {
-      console.log('in storage?')
+    if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId) {
       return JSON.parse(localStorage.getItem('chosenRecipe'))      
     } else {
-      console.log(theId, recipes[0])
-      const foundRecipe =  recipes.data.find(recipe => recipe.id == theId)  
+      const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
       localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
       return foundRecipe;
     }
@@ -130,9 +127,9 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-              <RecipesByCategory 
+              {!isLoading && <RecipesByCategory 
                 categoryType={ categoryType } 
-                allRecipesData={ recipes }/>
+                allRecipesData={ recipes }/>}
               <Footer/> 
             </section>
             )}
