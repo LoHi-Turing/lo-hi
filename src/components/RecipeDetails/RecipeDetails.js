@@ -21,8 +21,10 @@ const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
             </div>
             <div className='recipe-details-ingredients'>
               <h3 className='recipe-details-ingredient-title'>Ingredients</h3>   
-              <ul>{ingredientNames}</ul>
-              <ul>{ingredientAmounts}</ul>
+              <div className='ingredient-information'>
+                <ul className='recipe-details-ingredient-names'>{ingredientNames}</ul>
+                <ul className='recipe-details-ingredient-amounts'>{ingredientAmounts}</ul>
+              </div>
             </div>
           </div>
         </div>
