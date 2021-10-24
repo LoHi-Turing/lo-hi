@@ -3,6 +3,15 @@
   width: 100%;
 }
 
+.recipe-details-title-cook-time{
+  text-align: center;
+}
+
+.recipie-details-title {
+  margin: 5% 0 0 0;
+  font-size: 1.25em;
+}
+
 .recipe-details-main-container {  
   width: 100%;
   height: auto;
@@ -16,7 +25,7 @@
 }
 
 .recipe-details-main-img {
-  width: 80%;
+  width: 60%;
   height: auto;
   margin-top: 2%;
 }
@@ -28,16 +37,14 @@
   margin-right: 5%;
 }
 
-.recipie-details-title,
 .recipe-details-ingredient-title {
   text-align: start;
-  font-size: 1em;
+  font-size: .75em;
   margin: 5% 0 1.5% 0;
 }
 
 .recipe-details-cook-time {
-  margin: 0;
-  text-align: start;
+  margin: 0 0 5% 0;
   font-size: .5em;
 }
 
@@ -45,6 +52,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 50%;
+  margin-left:  10%;
 }
 
 .ingredient-information {
@@ -73,6 +82,7 @@ ul {
 
 .recipe-details-instructions-title {
   margin: 5% 0 1% 0;
+  font-size: .75em;
 }
 
 .recipe-details-description {
