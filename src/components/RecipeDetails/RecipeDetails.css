@@ -1,6 +1,7 @@
 .recipe-details {
-  height: auto;
+  height: 78vh;
   width: 100%;
+  overflow: scroll;
 }
 
 .recipe-details-title-cook-time{
@@ -8,7 +9,7 @@
 }
 
 .recipie-details-title {
-  margin: 5% 0 0 0;
+  margin: 3% 0 0 0;
   font-size: 1.25em;
 }
 
@@ -28,6 +29,7 @@
   width: 60%;
   height: auto;
   margin-top: 2%;
+  border-radius: 50%;
 }
 
 .recipe-details-main-container {
@@ -85,8 +87,14 @@ ul {
   font-size: .75em;
 }
 
+.method-steps {
+  margin-bottom: 1%;
+  text-align: start;
+}
+
 .recipe-details-description {
   font-size: 0.6em;
+  text-align: start;
   margin: 0 0 2% 0;
   width: 50%;
   height: auto;
