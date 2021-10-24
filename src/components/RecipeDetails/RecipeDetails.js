@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './RecipeDetails.css';
 
-const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
+const RecipeDetails = ({ currentRecipe }) => {
 
     useEffect(() => {
       if(localStorage.chosenRecipe) {
