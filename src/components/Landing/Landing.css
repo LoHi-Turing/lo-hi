@@ -1,20 +1,15 @@
 .landing {
-    /* color:#f2b66f; */
-    /* color: #70371f; */
     color: #607d8b;
     background-color: #e3e3e3;
     height: 100vh;
-    /* next line to be image side by side */
     display: flex;
     opacity: 0.8;
     z-index: 1;
-    /* iphone and Ipad needs to styll be the same or change to go to the bottom */
 }
+
 .background-img {
-    /* width: 100%; */
     width: 70%;
     z-index:-1;
-    /* margin: 20px; */
 }
 
 .logo-and-search {
@@ -34,7 +29,6 @@
 .catch-phrase {
     margin: 0;
     margin-bottom: 5%;
-    /* font-style: italic; */
 }
 
 .how-to-use {
@@ -46,7 +40,38 @@
     font-size: 16px;
 }
 
+/* ****** IphoneX ******* */
+@media only screen and (max-width:600px ){
+    
+    .landing {
+        flex-direction: column;
+    }
 
+    .background-img {
+        width: 100%;
+        opacity: 0.2;
+    }
+
+    .logo-and-search {
+        /* if i wnat to change the position of the logo change the next line */
+        height: 12vh;
+        margin-top: 5vh;
+    }
+
+    .logo {
+        width: 40%;
+    }
+
+    .catch-phrase {
+        margin: 0;
+        margin-bottom: 0;
+    }
+
+    .how-to-use {
+        margin-top: 8vh;
+    }
+    
+}
 
 /*Lora, slab 27px*/
 /*Caveat*/
