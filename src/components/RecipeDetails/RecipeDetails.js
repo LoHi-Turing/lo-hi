@@ -2,11 +2,10 @@ import React from 'react';
 import './RecipeDetails.css';
 
 const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
-  // const ingredientList = currentRecipe.attributes.ingredients.map(ingredient => (
-  //   <li>{ingredient}</li>
   const ingredientNames = currentRecipe.attributes.ingredients.map(ingredient => <li>{Object.keys(ingredient)}</li>)
   const ingredientAmounts = currentRecipe.attributes.ingredients.map(ingredient => <li>{Object.values(ingredient)}</li>)
     console.log(ingredientAmounts)
+  const methodInstructions = currentRecipe.attributes.description.map(step => <li className='method-steps'>{step}</li>)
 
   return (
     <section className='recipe-details'>
@@ -30,7 +29,7 @@ const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
         </div>
         <div className='recipe-details-instructions'>
           <h3 className='recipe-details-instructions-title'>Instructions</h3>
-          <p className='recipe-details-description'>{currentRecipe.attributes.description}</p>     
+          <ol className='recipe-details-description'>{methodInstructions}</ol>     
         </div>      
     </section>
   )
