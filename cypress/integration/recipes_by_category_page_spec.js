@@ -39,6 +39,6 @@ describe('Recipes by Category', () => {
   it('Should navigate to the recipe details page when the card is selected', () => {
     cy.get('.recipe-card-title').click()
       .url().should('include', '1')
-      .get('.recipe-details-main-img-container').should('be.visible')
+      .get('.recipie-details-title').should('be.visible')
   })
 })
