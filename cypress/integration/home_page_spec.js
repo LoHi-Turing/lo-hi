@@ -15,7 +15,7 @@ describe('Home Page', () => {
   })
 
   it('Should display the location\'s elevation and humidity', () => {
-    cy.get('.p-elevation').should('contain', '177 m')
+    cy.get('.p-elevation').should('be.visible')
       .get('.p-humidity').should('be.visible')
   })
 
