@@ -11,7 +11,6 @@ import RecipesByCategory from '../RecipesByCategory/RecipesByCategory';
 // import allRecipesSampleData from '../../utils/allRecipesSampleData';
 import { getRecipeData } from '../../utils/apiCalls';
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
-import { set } from 'lodash';
 
 
 const App = () => {
@@ -34,7 +33,6 @@ const App = () => {
       try {
         const res = await getLocationData(query)
         const returnedLocationInfo = await res.json()
-        console.log(returnedLocationInfo, 'here')
         setLocation(returnedLocationInfo.data.attributes.city)
         setElevation(returnedLocationInfo.data.attributes.elevation)
         setHumidity(returnedLocationInfo.data.attributes.humidity)  
@@ -138,7 +136,6 @@ const App = () => {
           const categoryType = match.params.category;         
           const recipeId = match.params.id; 
           const currentRecipe = identifyCurrentRecipe(recipeId)
-          // console.log(currentRecipe)
           return (
             <section className='recipie-details'>
              <Header

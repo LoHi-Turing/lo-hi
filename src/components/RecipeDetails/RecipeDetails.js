@@ -3,12 +3,6 @@ import './RecipeDetails.css';
 
 const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
 
-  const [chosenRecipe, setChosenRecipe] = useState({})
-
-  // const ingredientList = currentRecipe.attributes.ingredients.map(ingredient => (
-  //   <li>{ingredient}</li>
-  // ))
-
     useEffect(() => {
       if(localStorage.chosenRecipe) {
         JSON.parse(localStorage.getItem('chosenRecipe'))      
