@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react';
 import './RecipeDetails.css';
 
-const RecipeDetails = ({ currentRecipe }) => {
+const RecipeDetails = ({ categoryType, recipeId, currentRecipe }) => {
+
+  const [chosenRecipe, setChosenRecipe] = useState({})
+
+  // const ingredientList = currentRecipe.attributes.ingredients.map(ingredient => (
+  //   <li>{ingredient}</li>
+  // ))
 
     useEffect(() => {
       if(localStorage.chosenRecipe) {
