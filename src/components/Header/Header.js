@@ -3,10 +3,10 @@ import './Header.css';
 import { Link, useParams, useLocation } from 'react-router-dom';
 
 
-const Header = ({ location, elevation, humidity, updateLocation}) => {
+const Header = ({ location, locationElevation, humidity, updateLocation}) => {
 
   const [changeQuery, setChangeQuery] = useState('')
-  const { category, id } = useParams()
+  const { category, elevation, id } = useParams()
   const pageLocation = useLocation();
 
   const handleKeyPress = event => {
@@ -35,7 +35,7 @@ const Header = ({ location, elevation, humidity, updateLocation}) => {
       <div className='location-info'>
         <div className='location-data'>
           <img className='elevation-icon' src='images/arrows.svg' alt='Elevation Icon'/>
-          <p className='p-elevation'>{elevation} ft</p>
+          <p className='p-elevation'>{locationElevation} ft</p>
           <img className='humidity-icon' src='images/humidity.svg' alt='Humidity Icon'/>
           <p className='p-humidity'>{humidity} %</p>
         </div>
