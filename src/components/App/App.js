@@ -224,14 +224,15 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-             {isLoading && <Loading />}
-             {(!isLoading && error) && <Error errorCode={ error }/>}
-             {(!isLoading && !error) &&
+             {/* {isLoading && <Loading />}
+             {(!isLoading && error) && <Error errorCode={ error }/>} */}
+             {(!isLoading && !error) && 
              <RecipeDetails 
                 categoryType={categoryType}
                 recipeId={recipeId}
                 currentRecipe={currentRecipe}
-                />}
+                />
+                 }
              <Footer/>
             </section>
           )
