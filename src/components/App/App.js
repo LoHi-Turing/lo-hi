@@ -171,7 +171,7 @@ useEffect(() => {
     }
   }
   
-  const identifyCurrentRecipe = (theId, currentElevation) => {
+  const identifyCurrentRecipe = (theId) => {
 
 // ****** this one is the one that break before we change the is loading ********
 // ****** the problem we have here is that when we refresh the page, the page is going 
@@ -253,7 +253,7 @@ useEffect(() => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-              {isLoading && <Loading />}
+              {isLoading && recipes.length === 0 && <Loading />}
               {(!isLoading && error) && <Error errorCode={ error}/>}
               {(!isLoading && !error) && <RecipesByCategory 
                 categoryType={ categoryType } 
@@ -277,7 +277,7 @@ useEffect(() => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-             {isLoading && <Loading />}
+             {isLoading && !elevation && <Loading />}
              {(!isLoading && error) && <Error errorCode={ error }/>} 
              {(!isLoading && !error) && 
              <RecipeDetails 
