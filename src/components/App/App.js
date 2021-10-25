@@ -42,13 +42,18 @@ const App = () => {
         console.log('Error: ', err)
       }
     }   
-    invokeLocationData()    
+    invokeLocationData()
+    console.log('im 0 for the Location Data')    // invokeRecipeData() 
+    // console.log('im 5')
+    // console.log(location,elevation, recipes)
+
+
   },[query, location])
   
 
   const invokeRecipeData = async() => {
     try {
-      const res = await getRecipeData()
+      const res = await getRecipeData(elevation)
       const returnedRecipeData = await res.json()
       setRecipes(returnedRecipeData)
       setLoading(false)
@@ -56,6 +61,10 @@ const App = () => {
       setError("It is broken")
       console.log('Error:', err)
     }
+    console.log('im ivoking the recipe data 1')
+    console.log(location, recipes)
+
+
   }
 
   useEffect(() => {
@@ -65,6 +74,7 @@ const App = () => {
       const res = await getLocationData(storedLocation)
       const returnedLocationInfo = await res.json()
       setLocation(returnedLocationInfo.data.attributes.city)
+      setQuery(returnedLocationInfo.data.attributes.city)
       setElevation(returnedLocationInfo.data.attributes.elevation)
       setHumidity(returnedLocationInfo.data.attributes.humidity) 
     } catch (err) {
@@ -74,8 +84,11 @@ const App = () => {
   }
     if(localStorage) {
       retrieveLocationLocalStorage()
+    console.log('im retriving to locationLocalStorage 2')
+    console.log(location, recipes)
+
+
     }
-    invokeRecipeData()
   }, [])
 
   useEffect(() => {
@@ -85,16 +98,60 @@ const App = () => {
       localStorage.setItem('humidity', JSON.stringify(humidity))
     }
     storeLocation()
+    console.log('im setting the Local storage store location1')
+    console.log(location, recipes)
+
+    invokeRecipeData()
+    console.log('im suppoused to in=voke the recipe data  3')
+    console.log(location, recipes)
+
+
+
   },[location, elevation, humidity])
   
-  const identifyCurrentRecipe = (theId) => {
-    if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId) {
-      return JSON.parse(localStorage.getItem('chosenRecipe'))      
+  const identifyCurrentRecipe = (theId, currentElevation) => {
+
+// ****** this one is the one that break before we change the is loading ********
+// ****** the problem we have here is that when we refresh the page, the page is going 
+// ****** to it's original state of Dever on the Location
+// ****** but without the elevation and the humidity-  
+// ****** not api call so it doesn't have the recipes wich are undefined at the moment
+    if (recipes.length !== 0) {
+      const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)
+      
+      if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
+         && JSON.parse(localStorage.getItem('chosenRecipe')).type === foundRecipe.type) {
+          return JSON.parse(localStorage.getItem('chosenRecipe'))   
+      } else {
+        const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)
+        localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
+        return foundRecipe;
+      }
+
     } else {
-      const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
-      localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
-      return foundRecipe;
+      console.log("I'm inside the current recipe function 4", recipes)
     }
+
+
+// ******* this is what we built trying to get the recipe but it did not work ****
+    // const getElevation = () => {
+    //     if(currentElevation >= 5000) {
+    //     return 'recipe_high'
+    //     } else {
+    //     return 'recipe'
+    //     }
+    // }
+
+// ^^^^^^^^^^this is the one that was not changing the recipe at all and is still going back to the initial state 
+// ^^^^^^^^^^Denver is we refresh the page 
+    // if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId ) {
+    // //  && JSON.parse(localStorage.getItem('chosenRecipe')).currentElevation === currentElevation ) 
+    //   return JSON.parse(localStorage.getItem('chosenRecipe'))      
+    // } else {
+    //   const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
+    //   localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
+    //   return foundRecipe;
+    // }
   }
  
   
@@ -135,15 +192,18 @@ const App = () => {
               { error && <Error error={ error}/>}
               {(!isLoading && !error) && <RecipesByCategory 
                 categoryType={ categoryType } 
-                allRecipesData={ recipes }/>}
+                allRecipesData={ recipes }
+                currentElevation={elevation}
+                />}
               <Footer/> 
             </section>
             )}
         }/>
-        <Route exact path='/:category/:id' render={({ match })=> {
-          const categoryType = match.params.category;         
+        <Route exact path='/:category/:elevation/:id' render={({ match })=> {
+          const categoryType = match.params.category;
+          const currentElevation = match.params.elevation;         
           const recipeId = match.params.id; 
-          const currentRecipe = identifyCurrentRecipe(recipeId)
+          const currentRecipe = identifyCurrentRecipe(recipeId, currentElevation)
           return (
             <section className='recipie-details'>
              <Header
@@ -153,10 +213,12 @@ const App = () => {
                 updateLocation={updateLocation}
               /> 
              { error && <Error error={ error }/>}
+             {(!isLoading && !error) &&
              <RecipeDetails 
                 categoryType={categoryType}
                 recipeId={recipeId}
-                currentRecipe={currentRecipe}/>
+                currentRecipe={currentRecipe}
+                />}
              <Footer/>
             </section>
           )
