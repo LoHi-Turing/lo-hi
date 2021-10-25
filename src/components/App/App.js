@@ -41,13 +41,12 @@ const App = () => {
       setLocationInfo(returnedLocationInfo)
       // setLocation(returnedLocationInfo.data.attributes.city)
       // setElevation(returnedLocationInfo.data.attributes.elevation)
-      // setHumidity(returnedLocationInfo.data.attributes.humidity)  
-     
+      // setHumidity(returnedLocationInfo.data.attributes.humidity)       
     } catch (err) {
       // setError(err.status)
       console.log('Error: ', err)
     }
-    invokeRecipeData()
+    // invokeRecipeData()
   }
 
   const setLocationInfo = (returnedData) => {
@@ -77,7 +76,7 @@ const App = () => {
   //   // console.log(location,elevation, recipes)
   // },[query, location])
   
-
+useEffect(() => {
   const invokeRecipeData = async() => {
     console.log('inside the recipe data function fetch with location >', location)
     try {
@@ -93,6 +92,11 @@ const App = () => {
     console.log('im ivoking the recipe data 1')
     console.log(location, recipes)
   }
+
+  invokeRecipeData()
+
+}, [elevation])
+ 
 
   useEffect(() => {  /*The one I'm messing with */
     const retrieveLocationLocalStorage = async() => {
@@ -270,8 +274,8 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-             {/* {isLoading && <Loading />}
-             {(!isLoading && error) && <Error errorCode={ error }/>} */}
+             {isLoading && <Loading />}
+             {(!isLoading && error) && <Error errorCode={ error }/>} 
              {(!isLoading && !error) && 
              <RecipeDetails 
                 categoryType={categoryType}
