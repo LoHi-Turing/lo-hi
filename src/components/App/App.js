@@ -91,7 +91,7 @@ useEffect(() => {
       // setError(err.status)
       console.log('Error:', err)
     }
-    console.log('im ivoking the recipe data 1')
+    // console.log('im ivoking the recipe data 1')
     // console.log(location, recipes)
   }  
     invokeRecipeData()  
@@ -102,7 +102,7 @@ useEffect(() => {
 
   useEffect(() => {  /*The one I'm messing with */
     const retrieveLocationLocalStorage = async() => {
-    console.log('im retriving to locationLocalStorage 2')
+    // console.log('im retriving to locationLocalStorage 2')
     const storedLocation = JSON.parse(localStorage.getItem('location'))
     invokeLocationData(storedLocation)
   //   try {      
@@ -206,9 +206,8 @@ useEffect(() => {
 
 // ^^^^^^^^^^this is the one that was not changing the recipe at all and is still going back to the initial state 
 // ^^^^^^^^^^Denver is we refresh the page 
-    if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
+    if(JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
     && JSON.parse(localStorage.getItem('chosenRecipe')).type === getElevation()) {
-      console.log(JSON.parse(localStorage.getItem('chosenRecipe')).type === getElevation())
       return JSON.parse(localStorage.getItem('chosenRecipe'))      
     } else {
       const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
@@ -223,7 +222,7 @@ useEffect(() => {
       <Switch>
         <Route exact path='/' render={() => (
             <section className='landing-page'>
-            { error && <Error errorCode={ error }/> }
+            {error && <Error errorCode={ error }/>}
 
             {!error && <Landing updateLocation={updateLocation}/>}
             </section>
