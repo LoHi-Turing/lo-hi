@@ -50,10 +50,12 @@ const App = () => {
   }
 
   const setLocationInfo = (returnedData) => {
+      localStorage.setItem('location', JSON.stringify(returnedData.data.attributes.city))
+      localStorage.setItem('elevation', JSON.stringify(returnedData.data.attributes.elevation))
+      localStorage.setItem('humidity', JSON.stringify(returnedData.data.attributes.humidity))
       setLocation(returnedData.data.attributes.city)
       setElevation(returnedData.data.attributes.elevation)
       setHumidity(returnedData.data.attributes.humidity) 
-      console.log('Data set')
   }
 
   // useEffect(() => { 
@@ -91,18 +93,11 @@ useEffect(() => {
     }
     console.log('im ivoking the recipe data 1')
     console.log(location, recipes)
-  }
-
-  const storeLocation = () => {
-      localStorage.setItem('location', JSON.stringify(location))
-      localStorage.setItem('elevation', JSON.stringify(elevation))
-      localStorage.setItem('humidity', JSON.stringify(humidity))
-    }   
- 
-    invokeRecipeData()
-    storeLocation()  
+  }  
+    invokeRecipeData()  
 
 }, [elevation])
+
  
 
   useEffect(() => {  /*The one I'm messing with */
