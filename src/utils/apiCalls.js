@@ -5,8 +5,8 @@ export const getLocationData = async(queryLocation) => {
   return res 
 }
 
-export const getRecipeData = async() => {
-  let url = 'https://lohi-api.herokuapp.com/api/v1/recipes';
+export const getRecipeData = async(elevation) => {
+  let url = `https://lohi-api.herokuapp.com/api/v1/recipes?elevation=${elevation}`;
   const res = await fetch(url)
   return res
 }
