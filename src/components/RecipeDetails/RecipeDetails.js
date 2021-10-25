@@ -16,13 +16,13 @@ const RecipeDetails = ({ currentRecipe }) => {
   const methodInstructions = currentRecipe.attributes.description.map(step => <li className='method-steps'>{step}</li>)
 
   return (
-    <section className='recipe-details'>
-        <div className='recipe-details-title-cook-time'>
+    <section className='recipe-details-main-container'>
+        <div className='recipe-details-title-container'>
           <h3 className='recipie-details-title'>{currentRecipe.attributes.title}  </h3> 
           <p className='recipe-details-cook-time'>Est. Cook Time: {currentRecipe.attributes.cook_time}</p>  
         </div>        
-        <div className='recipe-details-main-container'>
-          <div className='recipe-details-images'>
+        <div className='recipe-details-allinfo'>
+          <div className='recipe-details-img-container'>
             <img className='recipe-details-main-img text-focus-in' src='https://cdn.shopify.com/s/files/1/0258/8531/products/Lemon_Bundt_Cake_grande.jpg?v=1564603405' alt='baked good'/>
           </div>
           <div className='recipe-details-information'>            
@@ -35,7 +35,7 @@ const RecipeDetails = ({ currentRecipe }) => {
             </div>
           </div>
         </div>
-        <div className='recipe-details-instructions'>
+        <div className='recipe-details-instructions-container'>
           <h3 className='recipe-details-instructions-title'>Instructions</h3>
           <ol className='recipe-details-description'>{methodInstructions}</ol>     
         </div>      
