@@ -20,10 +20,10 @@ const Search = ({ updateLocation }) => {
                 value={location}
                 onChange={e => setLocation(e.target.value)}
                 />
-            <Link to='/all-categories'>            
+            {location && <Link to='/all-categories'>            
                 <button className='search-btn' disabled={!location} type='submit' onClick={() => handleClick()}><img className='mag-glass' src='https://cdn2.vectorstock.com/i/1000x1000/33/01/magnifying-glass-orange-round-search-icon-vector-20353301.jpg' alt='Search Magnifying Glass'               
                 /></button>
-            </Link>
+            </Link>}
         </form>
     )
 }
