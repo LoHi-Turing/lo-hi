@@ -165,7 +165,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => (
             <section className='landing-page'>
-            { error && <Error error={ error }/> }
+            { error && <Error errorCode={ error }/> }
 
             {!error && <Landing updateLocation={updateLocation}/>}
             </section>
@@ -178,7 +178,7 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               />
-              { error && <Error error={ error }/>}
+              { error && <Error errorCode={ error }/>}
               {!error && <AllCategories/>}
               <Footer/>
             </section>
@@ -194,7 +194,7 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-              { error && <Error error={ error}/>}
+              { error && <Error errorCode={ error}/>}
               {(!isLoading && !error) && <RecipesByCategory 
                 categoryType={ categoryType } 
                 allRecipesData={ recipes }
@@ -217,7 +217,7 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-             { error && <Error error={ error }/>}
+             { error && <Error errorCode={ error }/>}
              {(!isLoading && !error) &&
              <RecipeDetails 
                 categoryType={categoryType}
