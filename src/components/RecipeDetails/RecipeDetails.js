@@ -3,13 +3,13 @@ import './RecipeDetails.css';
 
 const RecipeDetails = ({ currentRecipe }) => {
 
-    useEffect(() => {
+  useEffect(() => {
       if(localStorage.chosenRecipe) {
         JSON.parse(localStorage.getItem('chosenRecipe'))      
       } else {
         localStorage.setItem('chosenRecipe', JSON.stringify(currentRecipe))
       }
-    }, [currentRecipe])
+  }, [currentRecipe])
 
   const ingredientNames = currentRecipe.attributes.ingredients.map(ingredient => <li>{Object.keys(ingredient)}</li>)
   const ingredientAmounts = currentRecipe.attributes.ingredients.map(ingredient => <li>{Object.values(ingredient)}</li>)
