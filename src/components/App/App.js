@@ -277,9 +277,9 @@ useEffect(() => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-             {isLoading && !elevation && <Loading />}
+             {(isLoading || !elevation) && <Loading />}
              {(!isLoading && error) && <Error errorCode={ error }/>} 
-             {(!isLoading && !error) && 
+             {(!isLoading && !error && elevation) && 
              <RecipeDetails 
                 categoryType={categoryType}
                 recipeId={recipeId}
