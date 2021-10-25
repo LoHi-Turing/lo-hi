@@ -35,14 +35,12 @@
     /* padding: 0; */
   }
 
-  .search-btn:disabled {
-    cursor: not-allowed;
-  }
 
   .mag-glass {
     width: 30px;
     height: 30px;
     padding: 1px;
+    cursor: pointer;
     background-color: #e3e3e3;
     border-radius: 16px;
   }
