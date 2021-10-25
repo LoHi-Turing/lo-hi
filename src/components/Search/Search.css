@@ -35,6 +35,10 @@
     /* padding: 0; */
   }
 
+  .search-btn:disabled {
+    cursor: not-allowed;
+  }
+
   .mag-glass {
     width: 30px;
     height: 30px;
