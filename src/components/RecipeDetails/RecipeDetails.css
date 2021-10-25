@@ -30,13 +30,14 @@
 .recipe-details-img-container { 
   justify-content: center; 
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
+  width: 700px;
 } 
 
-.recipe-details-main-img {
+/* .recipe-details-main-img {
   width: 100%;
   border-radius: 50%;
-}
+} */
 
 .recipe-details-information { 
   display: flex;
