@@ -17,8 +17,8 @@ import Loading from '../Loading/Loading';
 
 const App = () => {
 
-  const [isLoading, setLoading] = useState(true)
-  const [query, setQuery] = useState('Denver')
+  const [isLoading, setLoading] = useState(false)
+  // const [query, setQuery] = useState('')
   const [location, setLocation] = useState('')
   const [elevation, setElevation] = useState('')
   const [humidity, setHumidity] = useState('')
@@ -27,33 +27,59 @@ const App = () => {
 
    
   const updateLocation = userInput => {
-    setQuery(userInput);
+    // setQuery(userInput);    
+    invokeLocationData(userInput);
+
   }
 
-  useEffect(() => { 
-    const invokeLocationData = async() => {
-      try {
-        const res = await getLocationData(query)
-        checkErrors(res)
-        const returnedLocationInfo = await res.json()
-        setLocation(returnedLocationInfo.data.attributes.city)
-        setElevation(returnedLocationInfo.data.attributes.elevation)
-        setHumidity(returnedLocationInfo.data.attributes.humidity)  
-      } catch (err) {
-        // setError(err.status)
-        console.log('Error: ', err)
-      }
-    }   
-    invokeLocationData()
-    console.log('im 0 for the Location Data')    // invokeRecipeData() 
-    // console.log('im 5')
-    // console.log(location,elevation, recipes)
+  const invokeLocationData = async(place) => {
+    setLoading(true)
+    try {
+      const res = await getLocationData(place)
+      checkErrors(res)
+      const returnedLocationInfo = await res.json()
+      setLocationInfo(returnedLocationInfo)
+      // setLocation(returnedLocationInfo.data.attributes.city)
+      // setElevation(returnedLocationInfo.data.attributes.elevation)
+      // setHumidity(returnedLocationInfo.data.attributes.humidity)  
+     
+    } catch (err) {
+      // setError(err.status)
+      console.log('Error: ', err)
+    }
+    invokeRecipeData()
+  }
 
+  const setLocationInfo = (returnedData) => {
+      setLocation(returnedData.data.attributes.city)
+      setElevation(returnedData.data.attributes.elevation)
+      setHumidity(returnedData.data.attributes.humidity) 
+      console.log('Data set')
+  }
 
-  },[query, location])
+  // useEffect(() => { 
+  //   const invokeLocationData = async() => {
+  //     try {
+  //       const res = await getLocationData(query)
+  //       checkErrors(res)
+  //       const returnedLocationInfo = await res.json()
+  //       setLocation(returnedLocationInfo.data.attributes.city)
+  //       setElevation(returnedLocationInfo.data.attributes.elevation)
+  //       setHumidity(returnedLocationInfo.data.attributes.humidity)  
+  //     } catch (err) {
+  //       // setError(err.status)
+  //       console.log('Error: ', err)
+  //     }
+  //   }   
+  //   invokeLocationData()
+  //   console.log('im 0 for the Location Data')    // invokeRecipeData() 
+  //   // console.log('im 5')
+  //   // console.log(location,elevation, recipes)
+  // },[query, location])
   
 
   const invokeRecipeData = async() => {
+    console.log('inside the recipe data function fetch with location >', location)
     try {
       const res = await getRecipeData(elevation)
       checkErrors(res)
@@ -68,50 +94,70 @@ const App = () => {
     console.log(location, recipes)
   }
 
-  useEffect(() => {
-    
-
-    
+  useEffect(() => {  /*The one I'm messing with */
     const retrieveLocationLocalStorage = async() => {
-      const storedLocation = JSON.parse(localStorage.getItem('location'))
-      try {      
-      const res = await getLocationData(storedLocation)
-      checkErrors(res)
-      const returnedLocationInfo = await res.json()
-      setLocation(returnedLocationInfo.data.attributes.city)
-      setQuery(returnedLocationInfo.data.attributes.city)
-      setElevation(returnedLocationInfo.data.attributes.elevation)
-      setHumidity(returnedLocationInfo.data.attributes.humidity) 
-    } catch (err) {
-      // setError('it is broken')
-      console.log('Error', err)
-    }
-  }
-
-    if(localStorage) {
-      retrieveLocationLocalStorage()
     console.log('im retriving to locationLocalStorage 2')
-    console.log(location, recipes)
-    }
+    const storedLocation = JSON.parse(localStorage.getItem('location'))
+    invokeLocationData(storedLocation)
+  //   try {      
+  //   const res = await getLocationData(storedLocation)
+  //   checkErrors(res)
+  //   const returnedLocationInfo = await res.json()
+  //   setLocation(returnedLocationInfo.data.attributes.city)
+  //   setQuery(returnedLocationInfo.data.attributes.city)
+  //   setElevation(returnedLocationInfo.data.attributes.elevation)
+  //   setHumidity(returnedLocationInfo.data.attributes.humidity) 
+  // } catch (err) {
+  //   // setError('it is broken')
+  //   console.log('Error', err)
+  // }
+}
+  if(localStorage.location) {
+    retrieveLocationLocalStorage()
+  // console.log('im retriving to locationLocalStorage 2')
+  // console.log(location, recipes)
+  }
+}, [])
 
-  }, [])
+  // useEffect(() => {  
+  //     const retrieveLocationLocalStorage = async() => {
+  //     const storedLocation = JSON.parse(localStorage.getItem('location'))
+  //     try {      
+  //     const res = await getLocationData(storedLocation)
+  //     checkErrors(res)
+  //     const returnedLocationInfo = await res.json()
+  //     setLocation(returnedLocationInfo.data.attributes.city)
+  //     setQuery(returnedLocationInfo.data.attributes.city)
+  //     setElevation(returnedLocationInfo.data.attributes.elevation)
+  //     setHumidity(returnedLocationInfo.data.attributes.humidity) 
+  //   } catch (err) {
+  //     // setError('it is broken')
+  //     console.log('Error', err)
+  //   }
+  // }
 
-  useEffect(() => {
-    const storeLocation = () => {
-      localStorage.setItem('location', JSON.stringify(location))
-      localStorage.setItem('elevation', JSON.stringify(elevation))
-      localStorage.setItem('humidity', JSON.stringify(humidity))
-    }
-    storeLocation()
-    console.log('im setting the Local storage store location1')
-    console.log(location, recipes)
+  //   if(localStorage) {
+  //     retrieveLocationLocalStorage()
+  //   console.log('im retriving to locationLocalStorage 2')
+  //   console.log(location, recipes)
+  //   }
+  // }, [])
 
-    invokeRecipeData()
-    console.log('im suppoused to in=voke the recipe data  3')
-    console.log(location, recipes)
+  // useEffect(() => {
+  //   const storeLocation = () => {
+  //     localStorage.setItem('location', JSON.stringify(location))
+  //     localStorage.setItem('elevation', JSON.stringify(elevation))
+  //     localStorage.setItem('humidity', JSON.stringify(humidity))
+  //   }
+  //   storeLocation()
+  //   console.log('im setting the Local storage store location1')
+  //   console.log(location, recipes)
 
+  //   invokeRecipeData()
+  //   console.log('im suppoused to in=voke the recipe data  3')
+  //   console.log(location, recipes)
 
-  },[location, elevation, humidity])
+  // },[location, elevation, humidity])
 
   const checkErrors = (res) => {
     if (!res.ok) {
@@ -185,7 +231,7 @@ const App = () => {
               />
               {isLoading && <Loading />}
               {(!isLoading && error) && <Error errorCode={ error }/>}
-              {!error && <AllCategories/>}
+              {(!error && !isLoading) && <AllCategories/>}
               <Footer/>
             </section>
           
