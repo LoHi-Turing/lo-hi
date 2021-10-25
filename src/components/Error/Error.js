@@ -8,7 +8,7 @@ const Error = ({ errorCode }) => {
           return (
             <section className="error-msg">
               <img src='images/broken-egg.png'
-                alt='movie camera'/>
+                alt='broken egg'/>
               <h1>{errorCode}</h1>
               <h2>Page Not Found!</h2>
               <p>Don't be discouraged. Everything breaks once in a while</p>
