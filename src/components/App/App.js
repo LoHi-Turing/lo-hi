@@ -162,7 +162,7 @@ const App = () => {
             <section className='landing-page'>
             { error && <Error error={ error }/> }
 
-              <Landing updateLocation={updateLocation}/>
+            {!error && <Landing updateLocation={updateLocation}/>}
             </section>
         )}/>
         <Route exact path='/all-categories' render={() => 
@@ -174,7 +174,7 @@ const App = () => {
                 updateLocation={updateLocation}
               />
               { error && <Error error={ error }/>}
-              <AllCategories/>
+              {!error && <AllCategories/>}
               <Footer/>
             </section>
           
