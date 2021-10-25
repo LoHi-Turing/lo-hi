@@ -80,7 +80,7 @@ const App = () => {
   
 useEffect(() => {
   const invokeRecipeData = async() => {
-    console.log('inside the recipe data function fetch with location >', location)
+    // console.log('inside the recipe data function fetch with location >', location)
     try {
       const res = await getRecipeData(elevation)
       checkErrors(res)
@@ -92,7 +92,7 @@ useEffect(() => {
       console.log('Error:', err)
     }
     console.log('im ivoking the recipe data 1')
-    console.log(location, recipes)
+    // console.log(location, recipes)
   }  
     invokeRecipeData()  
 
@@ -196,18 +196,19 @@ useEffect(() => {
 
 
 // ******* this is what we built trying to get the recipe but it did not work ****
-    // const getElevation = () => {
-    //     if(currentElevation >= 5000) {
-    //     return 'recipe_high'
-    //     } else {
-    //     return 'recipe'
-    //     }
-    // }
+    const getElevation = () => {
+        if(elevation >= 5000) {
+        return 'recipe_high'
+        } else {
+        return 'recipe'
+        }
+    }
 
 // ^^^^^^^^^^this is the one that was not changing the recipe at all and is still going back to the initial state 
 // ^^^^^^^^^^Denver is we refresh the page 
     if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
-    && JSON.parse(localStorage.getItem('chosenRecipe')).currentElevation === currentElevation) {
+    && JSON.parse(localStorage.getItem('chosenRecipe')).type === getElevation()) {
+      console.log(JSON.parse(localStorage.getItem('chosenRecipe')).type === getElevation())
       return JSON.parse(localStorage.getItem('chosenRecipe'))      
     } else {
       const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
