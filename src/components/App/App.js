@@ -123,7 +123,7 @@ useEffect(() => {
   // console.log('im retriving to locationLocalStorage 2')
   // console.log(location, recipes)
   }
-}, [])
+}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   // useEffect(() => {  
   //     const retrieveLocationLocalStorage = async() => {
@@ -255,7 +255,7 @@ useEffect(() => {
               /> 
               {isLoading && recipes.length === 0 && <Loading />}
               {(!isLoading && error) && <Error errorCode={ error}/>}
-              {(!isLoading && !error) && <RecipesByCategory 
+              {(!isLoading && !error && recipes.length !== 0) && <RecipesByCategory 
                 categoryType={ categoryType } 
                 allRecipesData={ recipes }
                 currentElevation={elevation}
