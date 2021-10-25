@@ -33,12 +33,13 @@ const App = () => {
     const invokeLocationData = async() => {
       try {
         const res = await getLocationData(query)
+        checkErrors(res)
         const returnedLocationInfo = await res.json()
         setLocation(returnedLocationInfo.data.attributes.city)
         setElevation(returnedLocationInfo.data.attributes.elevation)
         setHumidity(returnedLocationInfo.data.attributes.humidity)  
       } catch (err) {
-        setError("broken")
+        // setError(err.status)
         console.log('Error: ', err)
       }
     }   
@@ -54,17 +55,16 @@ const App = () => {
   const invokeRecipeData = async() => {
     try {
       const res = await getRecipeData(elevation)
+      checkErrors(res)
       const returnedRecipeData = await res.json()
       setRecipes(returnedRecipeData)
       setLoading(false)
     } catch (err) {
-      setError("It is broken")
+      // setError(err.status)
       console.log('Error:', err)
     }
     console.log('im ivoking the recipe data 1')
     console.log(location, recipes)
-
-
   }
 
   useEffect(() => {
@@ -72,13 +72,14 @@ const App = () => {
       const storedLocation = JSON.parse(localStorage.getItem('location'))
       try {      
       const res = await getLocationData(storedLocation)
+      checkErrors(res)
       const returnedLocationInfo = await res.json()
       setLocation(returnedLocationInfo.data.attributes.city)
       setQuery(returnedLocationInfo.data.attributes.city)
       setElevation(returnedLocationInfo.data.attributes.elevation)
       setHumidity(returnedLocationInfo.data.attributes.humidity) 
     } catch (err) {
-      setError('it is broken')
+      // setError('it is broken')
       console.log('Error', err)
     }
   }
@@ -86,8 +87,6 @@ const App = () => {
       retrieveLocationLocalStorage()
     console.log('im retriving to locationLocalStorage 2')
     console.log(location, recipes)
-
-
     }
   }, [])
 
@@ -108,6 +107,12 @@ const App = () => {
 
 
   },[location, elevation, humidity])
+
+  const checkErrors = (res) => {
+    if (!res.ok) {
+      setError(res.status)
+    }
+  }
   
   const identifyCurrentRecipe = (theId, currentElevation) => {
 
