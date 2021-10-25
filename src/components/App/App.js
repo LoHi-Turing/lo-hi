@@ -12,6 +12,7 @@ import RecipesByCategory from '../RecipesByCategory/RecipesByCategory';
 import { getRecipeData } from '../../utils/apiCalls';
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
 import Error from '../Error/Error';
+import Loading from '../Loading/Loading';
 
 
 const App = () => {
@@ -68,6 +69,9 @@ const App = () => {
   }
 
   useEffect(() => {
+    
+
+    
     const retrieveLocationLocalStorage = async() => {
       const storedLocation = JSON.parse(localStorage.getItem('location'))
       try {      
@@ -83,11 +87,13 @@ const App = () => {
       console.log('Error', err)
     }
   }
+
     if(localStorage) {
       retrieveLocationLocalStorage()
     console.log('im retriving to locationLocalStorage 2')
     console.log(location, recipes)
     }
+
   }, [])
 
   useEffect(() => {
@@ -103,7 +109,6 @@ const App = () => {
     invokeRecipeData()
     console.log('im suppoused to in=voke the recipe data  3')
     console.log(location, recipes)
-
 
 
   },[location, elevation, humidity])
@@ -178,7 +183,8 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               />
-              { error && <Error errorCode={ error }/>}
+              {isLoading && <Loading />}
+              {(!isLoading && error) && <Error errorCode={ error }/>}
               {!error && <AllCategories/>}
               <Footer/>
             </section>
@@ -194,7 +200,8 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-              { error && <Error errorCode={ error}/>}
+              {isLoading && <Loading />}
+              {(!isLoading && error) && <Error errorCode={ error}/>}
               {(!isLoading && !error) && <RecipesByCategory 
                 categoryType={ categoryType } 
                 allRecipesData={ recipes }
@@ -217,7 +224,8 @@ const App = () => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-             { error && <Error errorCode={ error }/>}
+             {isLoading && <Loading />}
+             {(!isLoading && error) && <Error errorCode={ error }/>}
              {(!isLoading && !error) &&
              <RecipeDetails 
                 categoryType={categoryType}
