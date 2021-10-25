@@ -232,7 +232,7 @@ useEffect(() => {
             <section className='categories-page'>
               <Header
                 location={location}
-                elevation={elevation}
+                locationElevation={elevation}
                 humidity={humidity}
                 updateLocation={updateLocation}
               />
@@ -249,7 +249,7 @@ useEffect(() => {
             <section className='recipies-by-category'>
                 <Header
                 location={location}
-                elevation={elevation}
+                locationElevation={elevation}
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
@@ -273,7 +273,7 @@ useEffect(() => {
             <section className='recipie-details'>
              <Header
                 location={location}
-                elevation={elevation}
+                locationElevation={elevation}
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
