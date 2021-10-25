@@ -1,14 +1,42 @@
 import React from 'react';
 import './Error.css';
 
-const Error = ({ error }) => {
+const Error = ({ errorCode }) => {
 
-return (
-    <section className="error-msg">
-        <h2>{ error }, This is wrong! Do it the rigth way</h2>
-    </section> 
-)
-
-}
+    switch(errorCode) {
+        case 404:
+          return (
+            <section className="error-msg">
+              <img src='images/broken-egg.png'
+                alt='movie camera'/>
+              <h1>{errorCode}</h1>
+              <h2>Page Not Found!</h2>
+              <p>Don't be discouraged. Everything breaks once in a while</p>
+            </section>
+          )
+    
+        case 500:
+          return (
+            <section className="error-msg">
+              <img src='images/broken-egg.png'
+                alt='broken egg'/>
+              <h1>{errorCode}</h1>
+              <h2>Experiencing Server Issues!</h2> 
+              <p>Don't be discouraged. Everything breaks once in a while</p>
+            </section>
+          )
+    
+        default: 
+        return (
+          <section className="error-msg">
+            <img src='images/broken-egg.png'
+                alt='broken egg'/>
+            <h1>{errorCode}</h1>
+            <h2>Experiencing Technical Diffifulties!</h2> 
+            <p>Don't be discouraged. Everything breaks once in a while</p>
+          </section>
+        )
+      }
+    }
 
 export default Error;
