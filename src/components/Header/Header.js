@@ -43,7 +43,7 @@ const Header = ({ location, elevation, humidity, updateLocation}) => {
         <div className='nav-links'>
           {pageLocation.pathname === '/all-categories' && <Link to='/'>Home</Link>}
           {pageLocation.pathname === `/${category}` && <Link to='/all-categories'>Categories</Link>}
-          {pageLocation.pathname === `/${category}/${id}` && <Link to={`/${category}`}>{category}</Link>}
+          {pageLocation.pathname === `/${category}/${elevation}/${id}` && <Link to={`/${category}`}>{category}</Link>}
         </div>
       </div> 
     </section>
