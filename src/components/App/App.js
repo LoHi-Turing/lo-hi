@@ -93,7 +93,14 @@ useEffect(() => {
     console.log(location, recipes)
   }
 
-  invokeRecipeData()
+  const storeLocation = () => {
+      localStorage.setItem('location', JSON.stringify(location))
+      localStorage.setItem('elevation', JSON.stringify(elevation))
+      localStorage.setItem('humidity', JSON.stringify(humidity))
+    }   
+ 
+    invokeRecipeData()
+    storeLocation()  
 
 }, [elevation])
  
@@ -148,18 +155,18 @@ useEffect(() => {
   // }, [])
 
   // useEffect(() => {
-  //   const storeLocation = () => {
-  //     localStorage.setItem('location', JSON.stringify(location))
-  //     localStorage.setItem('elevation', JSON.stringify(elevation))
-  //     localStorage.setItem('humidity', JSON.stringify(humidity))
-  //   }
-  //   storeLocation()
-  //   console.log('im setting the Local storage store location1')
-  //   console.log(location, recipes)
+    // const storeLocation = () => {
+    //   localStorage.setItem('location', JSON.stringify(location))
+    //   localStorage.setItem('elevation', JSON.stringify(elevation))
+    //   localStorage.setItem('humidity', JSON.stringify(humidity))
+    // }
+    // storeLocation()
+    // console.log('im setting the Local storage store location1')
+    // console.log(location, recipes)
 
-  //   invokeRecipeData()
-  //   console.log('im suppoused to in=voke the recipe data  3')
-  //   console.log(location, recipes)
+    // invokeRecipeData()
+    // console.log('im suppoused to in=voke the recipe data  3')
+    // console.log(location, recipes)
 
   // },[location, elevation, humidity])
 
@@ -176,21 +183,21 @@ useEffect(() => {
 // ****** to it's original state of Dever on the Location
 // ****** but without the elevation and the humidity-  
 // ****** not api call so it doesn't have the recipes wich are undefined at the moment
-    if (recipes.length !== 0) {
-      const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)
+    // if (recipes.length !== 0) {
+    //   const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)
       
-      if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
-         && JSON.parse(localStorage.getItem('chosenRecipe')).type === foundRecipe.type) {
-          return JSON.parse(localStorage.getItem('chosenRecipe'))   
-      } else {
-        const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)
-        localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
-        return foundRecipe;
-      }
+    //   if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
+    //      && JSON.parse(localStorage.getItem('chosenRecipe')).type === foundRecipe.type) {
+    //       return JSON.parse(localStorage.getItem('chosenRecipe'))   
+    //   } else {
+    //     const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)
+    //     localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
+    //     return foundRecipe;
+    //   }
 
-    } else {
-      console.log("I'm inside the current recipe function 4", recipes)
-    }
+    // } else {
+    //   console.log("I'm inside the current recipe function 4", recipes)
+    // }
 
 
 // ******* this is what we built trying to get the recipe but it did not work ****
@@ -204,14 +211,14 @@ useEffect(() => {
 
 // ^^^^^^^^^^this is the one that was not changing the recipe at all and is still going back to the initial state 
 // ^^^^^^^^^^Denver is we refresh the page 
-    // if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId ) {
-    // //  && JSON.parse(localStorage.getItem('chosenRecipe')).currentElevation === currentElevation ) 
-    //   return JSON.parse(localStorage.getItem('chosenRecipe'))      
-    // } else {
-    //   const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
-    //   localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
-    //   return foundRecipe;
-    // }
+    if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
+    && JSON.parse(localStorage.getItem('chosenRecipe')).currentElevation === currentElevation) {
+      return JSON.parse(localStorage.getItem('chosenRecipe'))      
+    } else {
+      const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
+      localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
+      return foundRecipe;
+    }
   }
  
   
