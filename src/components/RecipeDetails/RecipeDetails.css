@@ -86,8 +86,8 @@
 }
 
 .recipe-details-description {
-  /* font-size: 0.6em; */
-  font-size: 25px;
+  font-size: 0.8em;
+  /* font-size: 25px; */
   text-align: start;
   margin: 0 2% 2%;
   /* height: auto; */
@@ -126,6 +126,29 @@
     -webkit-filter: blur(0px);
             filter: blur(0px);
     opacity: 1;
+  }
+}
+
+/* ****** IphoneX ******* */
+@media only screen and (max-width:600px ){
+
+  .recipe-details-main-container {
+    padding: 1em;
+  }
+
+  .recipe-details-allinfo  {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .recipe-details-img-container { 
+    width: 100%;
+  } 
+  
+  .ingredient-information {
+    width: 85vw;
   }
 }
 
