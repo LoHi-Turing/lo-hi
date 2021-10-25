@@ -2,6 +2,7 @@
     width: 90%;
     height: 400px;
     background-color: gray;
+    border-radius: 3px;
 }
 
 .carouselInner {
@@ -17,16 +18,36 @@
     flex: 10%;
     height: 100%;
     background-color: rgb(0, 0, 0, 0.6);
+    display: grid;
+    place-items: center;
+    color: white;
+    cursor: pointer;
 }
 
 .carouselInner .center {
     flex: 80%;
     height: 100%;
-    /* background-color: rgb(0, 0, 0, 0.6); */
+    display: grid;
+    place-items: end;
+    /* place-items: center; */
+    text-align-last: center;
+    text-align: justify;
+}
+
+.carousel-p {
+    font-size: 1rem;
+    background-color: rgb(255, 255, 255, 0.8);
+    margin: 1px;
+    padding: 5px;
+    border-radius: 20px;
 }
 
 .carouselInner .right {
     flex: 10%;
     height: 100%;
     background-color: rgb(0, 0, 0, 0.6);
+    display: grid;
+    place-items: center;
+    color: white;
+    cursor: pointer;
 }
