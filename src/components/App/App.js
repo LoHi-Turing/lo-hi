@@ -56,6 +56,7 @@ const App = () => {
       setLocation(returnedData.data.attributes.city)
       setElevation(returnedData.data.attributes.elevation)
       setHumidity(returnedData.data.attributes.humidity) 
+      setLoading(false)
   }
 
   // useEffect(() => { 
