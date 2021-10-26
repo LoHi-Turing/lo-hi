@@ -11,7 +11,7 @@ const AllCategories = () => {
       <section className='links-container-line1'>
         <div className='categories-img-link'>
           <img className='category-img' src='images/Cake.svg' alt='Cakes category'/>
-          <Link to='/Cake' className='links'>Cake</Link>
+          <Link to='/cake' className='links'>Cake</Link>
         </div>
         <div className='categories-img-link'>
           <img className='category-img' src='images/Bread.svg' alt='Bread category'/>
