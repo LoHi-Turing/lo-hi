@@ -8,7 +8,11 @@ const RecipeDetails = ({ currentRecipe }) => {
       // if(localStorage.chosenRecipe) {
       //   JSON.parse(localStorage.getItem('chosenRecipe'))      
       // } else {
+        console.log(currentRecipe)
+      if(currentRecipe && currentRecipe !== {}) {
+        console.log(currentRecipe)
         localStorage.setItem('chosenRecipe', JSON.stringify(currentRecipe))
+      }
   // }
   }, [currentRecipe])
 
