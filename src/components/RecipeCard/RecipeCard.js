@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import './RecipeCard.css';
 
 
-const RecipeCard = ({ id, category, title, elevation, /* img */ }) => {
+const RecipeCard = ({ id, category, title, elevation, /* img */ findSelectedRecipe }) => {
 
     return (
-        <Link className='link-to-recipe-details' to= {`/${ category }/${ elevation }/${ id }`} >
+        <Link className='link-to-recipe-details' to= {`/${ category }/${ elevation }/${ id }`} onClick={() => {findSelectedRecipe(id)}}>
             <section className='recipe-card-container'>
                 <div className='recipe-card-main-img-container'>
                     {/* <img className='recipe-card-main-img' src=`data info` alt={ title }/> */}
