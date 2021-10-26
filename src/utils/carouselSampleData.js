@@ -12,3 +12,5 @@ export const images = [
         url:'https://static.onecms.io/wp-content/uploads/sites/43/2020/04/17/171761.jpg'
     }
 ];
+
+export const images1 = [];
