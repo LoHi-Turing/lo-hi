@@ -30,7 +30,6 @@ const RecipeDetails = ({ currentRecipe }) => {
         <div className='recipe-details-allinfo'>
           <div className='recipe-details-img-container'>
             <Carousel imgs={ images }/>
-            {/* <img className='recipe-details-main-img text-focus-in' src='https://cdn.shopify.com/s/files/1/0258/8531/products/Lemon_Bundt_Cake_grande.jpg?v=1564603405' alt='baked good'/> */}
           </div>
           <div className='recipe-details-information'>            
             <div className='recipe-details-ingredients'>
