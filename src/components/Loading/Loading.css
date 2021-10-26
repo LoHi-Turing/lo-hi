@@ -12,3 +12,20 @@
 .loading-gif {
   width: 20%;
 }
+
+@media only screen and (max-width:600px ){
+
+  .loading-container {
+    justify-content: center;
+  }
+
+  .loading-message {
+    font-size: 30px;
+    margin-bottom: 3em;
+  }
+
+  .loading-gif {
+    width: 40%;
+  }
+  
+}
