@@ -83,12 +83,13 @@ const App = () => {
   
 useEffect(() => {
   const invokeRecipeData = async() => {
-    // console.log('inside the recipe data function fetch with location >', location)
+    console.log('inside the recipe data function fetch with location >', location)
     try {
       const res = await getRecipeData(elevation)
       checkErrors(res)
       const returnedRecipeData = await res.json()
       setRecipes(returnedRecipeData)
+      resetCurrentRecipe(returnedRecipeData)
       setLoading(false)
     } catch (err) {
       // setError(err.status)
@@ -101,14 +102,22 @@ useEffect(() => {
 
 }, [elevation])
 
+const resetCurrentRecipe = (returnedRecipes) => {
+  console.log('Trying to reset that current thing with', returnedRecipes)
+  console.log('Trying to reset this', currentRecipe)
+  if (currentRecipe !== {}) {
+    const foundRecipe =  returnedRecipes.data.find(recipe => recipe.id === currentRecipe.id) 
+    console.log(foundRecipe, '<<< found recipe') 
+    setCurrentRecipt(foundRecipe)
+  }
+}
+
  
 
   useEffect(() => {  /*The one I'm messing with */
-    const retrieveLocationLocalStorage = async() => {
+    const retrieveLocationLocalStorage = () => {
     // console.log('im retriving to locationLocalStorage 2')
     const storedLocation = JSON.parse(localStorage.getItem('location'))
-    const storedRecipe = JSON.parse(localStorage.getItem('chosenRecipe'))
-    setCurrentRecipt(storedRecipe)
     invokeLocationData(storedLocation)
   //   try {      
   //   const res = await getLocationData(storedLocation)
@@ -123,11 +132,21 @@ useEffect(() => {
   //   console.log('Error', err)
   // }
 }
+  const retrieveRecipeStorage = () => {
+    const storedRecipe = JSON.parse(localStorage.getItem('chosenRecipe'))
+    console.log(storedRecipe)
+    setCurrentRecipt(storedRecipe)
+  }
+
   if(localStorage.location) {
     // setLoading(true)
     retrieveLocationLocalStorage()
   // console.log('im retriving to locationLocalStorage 2')
   // console.log(location, recipes)
+  }
+
+  if(localStorage.chosenRecipe) {
+    retrieveRecipeStorage()
   }
 }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -281,6 +300,7 @@ useEffect(() => {
           const categoryType = match.params.category;
           // const currentElevation = match.params.elevation;         
           const recipeId = match.params.id; 
+          console.log(currentRecipe)
           // const currentRecipe = identifyCurrentRecipe(recipeId, currentElevation)
           return (
             <section className='recipie-details'>
@@ -292,7 +312,7 @@ useEffect(() => {
               /> 
              {(isLoading && !elevation) && <Loading />}
              {(!isLoading && error) && <Error errorCode={ error }/>} 
-             {(!isLoading && !error && elevation) && 
+             {(!isLoading && !error) && 
              <RecipeDetails 
                 categoryType={categoryType}
                 recipeId={recipeId}
@@ -310,3 +330,6 @@ useEffect(() => {
 }
 
 export default App;
+
+
+//When you click enter - the location updates, recipes update, then you need to update the current recipe. How do I do that? IF the currentRecipe is truthy, then you can use that id
