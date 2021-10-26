@@ -1,12 +1,16 @@
 import React from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
+import { images1 } from '../../utils/carouselSampleData';
 import './RecipesByCategory.css';
 
 
 const RecipesByCategory = ({ categoryType, allRecipesData, currentElevation, findSelectedRecipe }) => {
 
     const dataByCategory = allRecipesData.data.filter((recipe) => recipe.attributes.category === categoryType).map(recipe =>
-      (
+      {
+        const loHiImg = [{ author: '@ LoHi', url: 'images/LoHi-bluegrey.png'}]
+        const images = images1.length ? images1 : loHiImg
+        return(
         <RecipeCard 
             key={ recipe.id }
             id={ recipe.id }
@@ -14,9 +18,9 @@ const RecipesByCategory = ({ categoryType, allRecipesData, currentElevation, fin
             title= { recipe.attributes.title }
             elevation = { currentElevation }
             findSelectedRecipe={findSelectedRecipe}
-            // img= { mainImg }
+            img= { images[0].url }
         />
-      )
+        )}
     )
         // let mainImg = recipe.attributes.img[0] 
     return (
