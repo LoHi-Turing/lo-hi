@@ -4,7 +4,7 @@
     "type": "location",
     "attributes": {
         "elevation": 5387,
-        "humidity": 18,
+        "humidity": 999999,
         "location": "80206",
         "city": "Denver",
         "state": "CO"
