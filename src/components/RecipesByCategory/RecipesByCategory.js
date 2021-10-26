@@ -3,7 +3,7 @@ import RecipeCard from '../RecipeCard/RecipeCard';
 import './RecipesByCategory.css';
 
 
-const RecipesByCategory = ({ categoryType, allRecipesData, currentElevation }) => {
+const RecipesByCategory = ({ categoryType, allRecipesData, currentElevation, findSelectedRecipe }) => {
 
     const dataByCategory = allRecipesData.data.filter((recipe) => recipe.attributes.category === categoryType).map(recipe =>
       (
@@ -13,6 +13,7 @@ const RecipesByCategory = ({ categoryType, allRecipesData, currentElevation }) =
             category= { recipe.attributes.category }
             title= { recipe.attributes.title }
             elevation = { currentElevation }
+            findSelectedRecipe={findSelectedRecipe}
             // img= { mainImg }
         />
       )
