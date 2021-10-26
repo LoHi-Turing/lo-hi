@@ -1,6 +1,5 @@
 import React from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
-// import { images1 } from '../../utils/carouselSampleData';
 import './RecipesByCategory.css';
 
 
