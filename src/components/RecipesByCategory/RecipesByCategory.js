@@ -24,9 +24,11 @@ const RecipesByCategory = ({ categoryType, allRecipesData, currentElevation, fin
     )
 
     return (
-        <main className='recipes-by-category'>
+      <main className='recipes-by-category'>
         <h2 className='category-title'>{ categoryType } Recipes</h2>
-        { dataByCategory }
+        <section className='recipe-cards-container'>
+          { dataByCategory }
+        </section>
       </main> 
     )
 }
