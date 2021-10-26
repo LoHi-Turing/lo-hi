@@ -24,6 +24,8 @@ const App = () => {
   const [humidity, setHumidity] = useState('')
   const [recipes, setRecipes] = useState([])
   const [error, setError] = useState('')
+  const [currentRecipe, setCurrentRecipt] = useState({})
+  
 
    
   const updateLocation = userInput => {
@@ -105,6 +107,8 @@ useEffect(() => {
     const retrieveLocationLocalStorage = async() => {
     // console.log('im retriving to locationLocalStorage 2')
     const storedLocation = JSON.parse(localStorage.getItem('location'))
+    const storedRecipe = JSON.parse(localStorage.getItem('chosenRecipe'))
+    setCurrentRecipt(storedRecipe)
     invokeLocationData(storedLocation)
   //   try {      
   //   const res = await getLocationData(storedLocation)
@@ -208,16 +212,21 @@ useEffect(() => {
 
 // ^^^^^^^^^^this is the one that was not changing the recipe at all and is still going back to the initial state 
 // ^^^^^^^^^^Denver is we refresh the page 
-    if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
-    && JSON.parse(localStorage.getItem('chosenRecipe')).type === getElevation()) {
+    if(localStorage.chosenRecipe ) {
       return JSON.parse(localStorage.getItem('chosenRecipe'))      
     } else {
-      console.log(JSON.parse(localStorage.getItem('chosenRecipe')).type, getElevation(), elevation, '<elevation', isLoading, '<isLoad')
       const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
       localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
       return foundRecipe;
     }
   }
+
+  const findSelectedRecipe = (id) => {
+    const foundRecipe =  recipes.data.find(recipe => recipe.id === id)  
+    setCurrentRecipt(foundRecipe)
+  }
+  // && (JSON.parse(localStorage.getItem('chosenRecipe')).id === theId) 
+    // && (JSON.parse(localStorage.getItem('chosenRecipe')).type === getElevation())
  
   
   return (
@@ -257,10 +266,12 @@ useEffect(() => {
               /> 
               {isLoading && recipes.length === 0 && <Loading />}
               {(!isLoading && error) && <Error errorCode={ error}/>}
-              {(!isLoading && !error && recipes.length !== 0) && <RecipesByCategory 
+              {(!isLoading && !error && recipes.length !== 0) && 
+                <RecipesByCategory 
                 categoryType={ categoryType } 
                 allRecipesData={ recipes }
                 currentElevation={elevation}
+                findSelectedRecipe={findSelectedRecipe}
                 />}
               <Footer/> 
             </section>
@@ -268,7 +279,7 @@ useEffect(() => {
         }/>
         <Route exact path='/:category/:elevation/:id' render={({ match })=> {
           const categoryType = match.params.category;
-          const currentElevation = match.params.elevation;         
+          // const currentElevation = match.params.elevation;         
           const recipeId = match.params.id; 
           // const currentRecipe = identifyCurrentRecipe(recipeId, currentElevation)
           return (
