@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router';
+import { Route, Switch, Link } from 'react-router-dom';
 import Landing from '../Landing/Landing';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -320,6 +320,7 @@ const resetCurrentRecipe = (returnedRecipes) => {
                 // currentElevation={currentElevation}
                 />
                  }
+              {!currentRecipe && <h2>Something went wrong. Please navigate back to <Link to='/all-categories'>All Categories</Link></h2>}   
              <Footer/>
             </section>
           )
