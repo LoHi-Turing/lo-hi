@@ -56,7 +56,7 @@ const App = () => {
       setLocation(returnedData.data.attributes.city)
       setElevation(returnedData.data.attributes.elevation)
       setHumidity(returnedData.data.attributes.humidity) 
-      setLoading(false)
+      // setLoading(false)
   }
 
   // useEffect(() => { 
@@ -120,6 +120,7 @@ useEffect(() => {
   // }
 }
   if(localStorage.location) {
+    // setLoading(true)
     retrieveLocationLocalStorage()
   // console.log('im retriving to locationLocalStorage 2')
   // console.log(location, recipes)
@@ -197,20 +198,21 @@ useEffect(() => {
 
 
 // ******* this is what we built trying to get the recipe but it did not work ****
-    const getElevation = () => {
-        if(elevation >= 5000) {
-        return 'recipe_high'
-        } else {
-        return 'recipe'
-        }
+    const getElevation = () => {       
+          if(elevation >= 5000) {
+            return 'recipe_high'
+            } else {
+            return 'recipe'
+            }     
     }
 
 // ^^^^^^^^^^this is the one that was not changing the recipe at all and is still going back to the initial state 
 // ^^^^^^^^^^Denver is we refresh the page 
-    if(JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
+    if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
     && JSON.parse(localStorage.getItem('chosenRecipe')).type === getElevation()) {
       return JSON.parse(localStorage.getItem('chosenRecipe'))      
     } else {
+      console.log(JSON.parse(localStorage.getItem('chosenRecipe')).type, getElevation(), elevation, '<elevation', isLoading, '<isLoad')
       const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
       localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
       return foundRecipe;
@@ -268,7 +270,7 @@ useEffect(() => {
           const categoryType = match.params.category;
           const currentElevation = match.params.elevation;         
           const recipeId = match.params.id; 
-          const currentRecipe = identifyCurrentRecipe(recipeId, currentElevation)
+          // const currentRecipe = identifyCurrentRecipe(recipeId, currentElevation)
           return (
             <section className='recipie-details'>
              <Header
@@ -277,13 +279,14 @@ useEffect(() => {
                 humidity={humidity}
                 updateLocation={updateLocation}
               /> 
-             {(isLoading || !elevation) && <Loading />}
+             {(isLoading && !elevation) && <Loading />}
              {(!isLoading && error) && <Error errorCode={ error }/>} 
              {(!isLoading && !error && elevation) && 
              <RecipeDetails 
                 categoryType={categoryType}
                 recipeId={recipeId}
                 currentRecipe={currentRecipe}
+                // currentElevation={currentElevation}
                 />
                  }
              <Footer/>
