@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './Carousel.css';
-import { images } from '../../utils/carouselSampleData';
+// import { images } from '../../utils/carouselSampleData';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
-const Carousel = () => {
+const Carousel = ({ imgs }) => {
 
+    const images = imgs;
+
+    //  need a condition if there's no image to show the lohi logo 
     const [currImg, setCurrImg]= useState(0);
 
     return (
@@ -24,7 +27,7 @@ const Carousel = () => {
                     <ArrowBackIosIcon style={{ fontSize: 30 }}/>
                 </div>
                 <div className='center'>
-                    <p className='carousel-p'>Photo by {images[currImg].author}</p>
+                    <p className='carousel-p'>{images[currImg].author}</p>
                 </div>
                 <div 
                     className='right'
