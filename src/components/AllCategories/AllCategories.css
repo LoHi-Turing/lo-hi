@@ -46,3 +46,38 @@
   font-size: 20px;
   color:#ff9800;
 }
+
+/* ****** IphoneX ******* */
+@media only screen and (max-width:600px ){
+
+  .categories-display {
+   align-items: center;
+   text-align: center;
+   overflow-y: scroll;
+  }
+
+  .links-container-line1 {
+    flex-direction: column;
+    align-items: center;
+     margin-top: 20px;
+  }
+  
+  .links-container-line2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .categories-img-link {
+    padding: 0.5em;
+    width: 80%;
+  }
+
+  .category-img {
+    width: 60%;
+  }
+
+  .links {
+    color:#ff9800;
+  }
+  
+}
