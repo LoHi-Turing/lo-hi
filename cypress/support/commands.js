@@ -1,21 +1,8 @@
 Cypress.Commands.add('load', () => {
-  cy.visit('http://localhost:3000')
+  // cy.visit('http://localhost:3000/')
 
-  cy.intercept('https://lohi-api.herokuapp.com/api/v1/location?location=90210', {
-    body: {
-      data: [
-        {
-          id: null,
-          type: 'location',
-          attributes: {
-            elevation: 103, 
-            humidity: 74,
-            location: 'Beverly Hills',
-            state: 'CA'
-          }
-        }
-      ]
-    }
+  cy.intercept('https://lohi-api.herokuapp.com/api/v1/location?location=Denver', {
+    fixture:'location.json',
   })
 })
 

@@ -4,6 +4,7 @@ describe('Home Page', () => {
       .get('.search-bar')
       .type('90210')
       .get('.mag-glass').click()
+      // cy.load()
   })
 
   it('Should update the url', () => {
