@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import { HashRouter } from 'react-router-dom';
+import * as serviceWorkerResgistration from './serviceWorkerRegistration';
 
 ReactDOM.render(
   <HashRouter>
@@ -11,5 +12,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorker.register()
+serviceWorkerResgistration.register()
 
