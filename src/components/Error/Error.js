@@ -6,7 +6,7 @@ const Error = ({ errorCode }) => {
     switch(errorCode) {
         case 404:
           return (
-            <section className="error-msg">
+            <section className='error-msg'>
               <img src='images/broken-egg.png'
                 alt='broken egg'/>
               <h1>{errorCode}</h1>
@@ -17,7 +17,7 @@ const Error = ({ errorCode }) => {
     
         case 500:
           return (
-            <section className="error-msg">
+            <section className='error-msg'>
               <img src='images/broken-egg.png'
                 alt='broken egg'/>
               <h1>{errorCode}</h1>
@@ -28,7 +28,7 @@ const Error = ({ errorCode }) => {
     
         default: 
         return (
-          <section className="error-msg">
+          <section className='error-msg'>
             <img src='images/broken-egg.png'
                 alt='broken egg'/>
             <h1>{errorCode}</h1>

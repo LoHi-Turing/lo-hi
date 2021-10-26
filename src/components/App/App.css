@@ -19,3 +19,7 @@
   width: 100vw;
   margin-bottom: 0;
 }
+
+.currentRecipe-error {
+  height: 70vh;
+}
