@@ -320,7 +320,7 @@ const resetCurrentRecipe = (returnedRecipes) => {
                 // currentElevation={currentElevation}
                 />
                  }
-              {!currentRecipe && <h2>Something went wrong. Please navigate back to <Link to='/all-categories'>All Categories</Link></h2>}   
+              {!currentRecipe && <h2>Something went wrong. Please navigate back to your above category or <Link to='/all-categories'>All Categories</Link></h2>}   
              <Footer/>
             </section>
           )
