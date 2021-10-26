@@ -9,8 +9,8 @@ const RecipesByCategory = ({ categoryType, allRecipesData, currentElevation, fin
     const dataByCategory = allRecipesData.data.filter((recipe) => recipe.attributes.category === categoryType).map(recipe =>
       {
         const loHiImg = [{ author: '@ LoHi', url: 'images/LoHi-yellow.png'}]
-        const images = images1.length ? images1 : loHiImg
-        
+        const images = recipe.attributes.images.length ? recipe.attributes.images : loHiImg
+
         return(
         <RecipeCard 
             key={ recipe.id }
@@ -18,7 +18,7 @@ const RecipesByCategory = ({ categoryType, allRecipesData, currentElevation, fin
             category= { recipe.attributes.category }
             title= { recipe.attributes.title }
             elevation = { currentElevation }
-            findSelectedRecipe={findSelectedRecipe}
+            findSelectedRecipe={ findSelectedRecipe }
             img= { images[0].url }
         />
         )}
