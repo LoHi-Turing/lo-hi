@@ -39,7 +39,11 @@ const Header = ({ location, locationElevation, humidity, updateLocation}) => {
           <img className='humidity-icon' src='images/humidity.svg' alt='Humidity Icon'/>
           <p className='p-humidity'>{humidity} %</p>
         </div>
-        <h1 className='company-name'><img className='header-logo' src='images/LoHi-white.png' alt='LoHi logo'/></h1>
+        <Link to='/'>
+          <h1 className='company-name'>
+            <img className='header-logo' src='images/LoHi-white.png' alt='LoHi logo'/>
+          </h1>
+        </Link>
         <div className='nav-links'>
           {pageLocation.pathname === '/all-categories' && <Link to='/'>Home</Link>}
           {pageLocation.pathname === `/${category}` && <Link to='/all-categories'>Categories</Link>}
