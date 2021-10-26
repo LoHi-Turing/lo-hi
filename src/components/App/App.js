@@ -100,7 +100,7 @@ useEffect(() => {
   }  
     invokeRecipeData()  
 
-}, [elevation])
+}, [elevation]) // eslint-disable-line react-hooks/exhaustive-deps
 
 const resetCurrentRecipe = (returnedRecipes) => {
   console.log('Trying to reset that current thing with', returnedRecipes)
