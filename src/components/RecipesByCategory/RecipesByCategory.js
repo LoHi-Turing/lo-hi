@@ -1,6 +1,6 @@
 import React from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
-import { images1 } from '../../utils/carouselSampleData';
+// import { images1 } from '../../utils/carouselSampleData';
 import './RecipesByCategory.css';
 
 
@@ -23,7 +23,7 @@ const RecipesByCategory = ({ categoryType, allRecipesData, currentElevation, fin
         />
         )}
     )
-        // let mainImg = recipe.attributes.img[0] 
+
     return (
         <main className='recipes-by-category'>
         <h2 className='category-title'>{ categoryType } Recipes</h2>
