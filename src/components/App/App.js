@@ -24,7 +24,7 @@ const App = () => {
   const [humidity, setHumidity] = useState('')
   const [recipes, setRecipes] = useState([])
   const [error, setError] = useState('')
-  const [currentRecipe, setCurrentRecipt] = useState({})
+  const [currentRecipe, setCurrentRecipt] = useState('')
   
 
    
@@ -312,7 +312,7 @@ const resetCurrentRecipe = (returnedRecipes) => {
               /> 
              {(isLoading && !elevation) && <Loading />}
              {(!isLoading && error) && <Error errorCode={ error }/>} 
-             {(!isLoading && !error) && 
+             {(!isLoading && !error && currentRecipe) && 
              <RecipeDetails 
                 categoryType={categoryType}
                 recipeId={recipeId}
