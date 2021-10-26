@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import './Carousel.css';
-// import { images } from '../../utils/carouselSampleData';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 const Carousel = ({ imgs }) => {
 
-    const images = imgs;
+    const loHiImg = [{ author: '@ LoHi', url: 'images/LoHi-bluegrey.png'}]
+    const images = imgs.length ? imgs : loHiImg
 
-    //  need a condition if there's no image to show the lohi logo 
     const [currImg, setCurrImg]= useState(0);
 
     return (
