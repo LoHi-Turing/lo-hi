@@ -36,8 +36,7 @@ const App = () => {
       const returnedLocationInfo = await res.json()
       setLocationInfo(returnedLocationInfo)      
     } catch (err) {
-      // setError(err.status)
-      console.log('Error: ', err)
+      setError(err.status)
     }
   }
 
@@ -53,7 +52,6 @@ const App = () => {
   
   useEffect(() => {
     const invokeRecipeData = async() => {
-      console.log('inside the recipe data function fetch with location >', location)
       try {
         const res = await getRecipeData(elevation)
         checkErrors(res)
@@ -62,8 +60,7 @@ const App = () => {
         resetCurrentRecipe(returnedRecipeData)
         setLoading(false)
       } catch (err) {
-        // setError(err.status)
-        console.log('Error:', err)
+        setError(err.status)
       }
     }  
       invokeRecipeData()  
@@ -71,11 +68,8 @@ const App = () => {
   }, [elevation]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const resetCurrentRecipe = (returnedRecipes) => {
-    console.log('Trying to reset that current thing with', returnedRecipes)
-    console.log('Trying to reset this', currentRecipe)
     if (currentRecipe !== {}) {
       const foundRecipe =  returnedRecipes.data.find(recipe => recipe.id === currentRecipe.id) 
-      console.log(foundRecipe, '<<< found recipe') 
       setCurrentRecipt(foundRecipe)
     }
   } 
@@ -103,66 +97,18 @@ const App = () => {
       setError(res.status)
     }
   }
-  
-  // const identifyCurrentRecipe = (theId) => {
-
-// ****** this one is the one that break before we change the is loading ********
-// ****** the problem we have here is that when we refresh the page, the page is going 
-// ****** to it's original state of Dever on the Location
-// ****** but without the elevation and the humidity-  
-// ****** not api call so it doesn't have the recipes wich are undefined at the moment
-    // if (recipes.length !== 0) {
-    //   const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)
-      
-    //   if(localStorage.chosenRecipe && JSON.parse(localStorage.getItem('chosenRecipe')).id === theId  
-    //      && JSON.parse(localStorage.getItem('chosenRecipe')).type === foundRecipe.type) {
-    //       return JSON.parse(localStorage.getItem('chosenRecipe'))   
-    //   } else {
-    //     const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)
-    //     localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
-    //     return foundRecipe;
-    //   }
-
-    // } else {
-    //   console.log("I'm inside the current recipe function 4", recipes)
-    // }
-
-
-// ******* this is what we built trying to get the recipe but it did not work ****
-//     const getElevation = () => {       
-//           if(elevation >= 5000) {
-//             return 'recipe_high'
-//             } else {
-//             return 'recipe'
-//             }     
-//     }
-
-// // ^^^^^^^^^^this is the one that was not changing the recipe at all and is still going back to the initial state 
-// // ^^^^^^^^^^Denver is we refresh the page 
-//     if(localStorage.chosenRecipe ) {
-//       return JSON.parse(localStorage.getItem('chosenRecipe'))      
-//     } else {
-//       const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
-//       localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
-//       return foundRecipe;
-//     }
-//   }
 
   const findSelectedRecipe = (id) => {
     const foundRecipe =  recipes.data.find(recipe => recipe.id === id)  
     setCurrentRecipt(foundRecipe)
   }
-  // && (JSON.parse(localStorage.getItem('chosenRecipe')).id === theId) 
-    // && (JSON.parse(localStorage.getItem('chosenRecipe')).type === getElevation())
- 
   
   return (
     <div className='App'>
       <Switch>
         <Route exact path='/' render={() => (
             <section className='landing-page'>
-            {error && <Error errorCode={ error }/>}
-
+            {error && <Error errorCode={error}/>}
             {!error && <Landing updateLocation={updateLocation}/>}
             </section>
         )}/>
@@ -178,8 +124,7 @@ const App = () => {
               {(!isLoading && error) && <Error errorCode={ error }/>}
               {(!error && !isLoading) && <AllCategories/>}
               <Footer/>
-            </section>
-          
+            </section>          
         }/>
         <Route exact path='/:category' render={({ match }) => {
             const categoryType = match.params.category;
@@ -192,11 +137,11 @@ const App = () => {
                 updateLocation={updateLocation}
               /> 
               {isLoading && recipes.length === 0 && <Loading />}
-              {(!isLoading && error) && <Error errorCode={ error}/>}
+              {(!isLoading && error) && <Error errorCode={error}/>}
               {(!isLoading && !error && recipes.length !== 0) && 
                 <RecipesByCategory 
-                categoryType={ categoryType } 
-                allRecipesData={ recipes }
+                categoryType={categoryType} 
+                allRecipesData={recipes}
                 currentElevation={elevation}
                 findSelectedRecipe={findSelectedRecipe}
                 />}
@@ -206,10 +151,7 @@ const App = () => {
         }/>
         <Route exact path='/:category/:elevation/:id' render={({ match })=> {
           const categoryType = match.params.category;
-          // const currentElevation = match.params.elevation;         
           const recipeId = match.params.id; 
-          console.log(currentRecipe)
-          // const currentRecipe = identifyCurrentRecipe(recipeId, currentElevation)
           return (
             <section className='recipie-details'>
              <Header
@@ -219,13 +161,12 @@ const App = () => {
                 updateLocation={updateLocation}
               /> 
              {(isLoading && !elevation) && <Loading />}
-             {(!isLoading && error) && <Error errorCode={ error }/>} 
+             {(!isLoading && error) && <Error errorCode={error}/>} 
              {(!isLoading && !error && currentRecipe) && 
              <RecipeDetails 
                 categoryType={categoryType}
                 recipeId={recipeId}
                 currentRecipe={currentRecipe}
-                // currentElevation={currentElevation}
                 />
                  }
               {!currentRecipe && <h2 className='currentRecipe-error'>Something went wrong. Please navigate back to your above category or <Link to='/all-categories'>All Categories</Link></h2>}   
@@ -241,4 +182,3 @@ const App = () => {
 export default App;
 
 
-//When you click enter - the location updates, recipes update, then you need to update the current recipe. How do I do that? IF the currentRecipe is truthy, then you can use that id
