@@ -30,8 +30,8 @@ describe('Home Page', () => {
 
   it('Should accept a new city input', () => {
     cy.get('.location')
-      .type('Las Vegas{enter}')
-      .get('.p-location').should('contain', 'Las Vegas')      
+      .type('90094{enter}')
+      .get('.p-location').should('contain', 'Playa Vista')      
   })
 
   it('Should have a title', () => {
