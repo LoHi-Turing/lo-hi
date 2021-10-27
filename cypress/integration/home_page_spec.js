@@ -11,8 +11,8 @@ describe('Home Page', () => {
     cy.url().should('include', 'all-categories')
   })
 
-  it.skip('Should include the user city in the header', () => {
-    cy.get('.p-location').should('contain', 'Beverly Hills')
+  it('Should include the user city in the header', () => {
+    cy.get('.p-location').should('contain', 'Denver')
   })
 
   it('Should display the location\'s elevation and humidity', () => {
@@ -34,15 +34,15 @@ describe('Home Page', () => {
       .get('.p-location').should('contain', 'Las Vegas')      
   })
 
-  it.skip('Should have a title', () => {
+  it('Should have a title', () => {
     cy.get('.baking-categories-title').should('contain', 'Baking Categories')
   })
 
-  it.skip('Should display the five category links', () => {
+  it('Should display the five category links', () => {
     cy.get('.links-container-line1 > :nth-child(1) > .links').should('contain', 'Cake')      
       .get('.links-container-line2 > :nth-child(1) > .links').should('contain', 'Muffin')      
       .get('.links-container-line1 > :nth-child(2) > .links').should('contain', 'Bread')
       .get('.links-container-line2 > :nth-child(2) > .links').should('contain', 'Pancakes')
-      .get(':nth-child(3) > .links').should('contain', 'Cookie')      
+      .get(':nth-child(3) > .links').should('contain', 'Cookies')      
   })
 })
