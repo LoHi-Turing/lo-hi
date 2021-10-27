@@ -14,20 +14,20 @@ describe('Landing Page', () => {
 
   it('Should have an input that accepts a zip code input', () => {
     cy.get('.search-bar')
-      .type('80504')
-      .should('have.value', '80504')
+      .type('90094')
+      .should('have.value', '90094')
   })
 
   it('Should have an input that accepts a city name input', () => {
     cy.get('.search-bar')
-      .type('Austin')
-      .should('have.value', 'Austin')
+      .type('Denver')
+      .should('have.value', 'Denver')
   })
 
   it('Should route to the categories page when "Enter" has been selected', () => {
     cy.get('.search-bar')
-      .type('80504')
-      .should('have.value', '80504')
+      .type('90094')
+      .should('have.value', '90094')
       .get('.mag-glass').click()
       .get('.baking-categories-title').should('be.visible')
   })

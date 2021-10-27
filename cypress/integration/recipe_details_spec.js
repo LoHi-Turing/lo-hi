@@ -31,7 +31,7 @@ describe('Recipe Details', () => {
   })
 
   it('Should display the recipe title', () => {
-    cy.get('.recipie-details-title').should('contain', 'Chocolate Chip Banana Bread')
+    cy.get('.recipie-details-title').should('contain', 'Chocolate Chip Brad Pitt')
   })
 
   it('Should display ingredients', () => {
