@@ -27,7 +27,7 @@ self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
-        cacheNames.map(cache => {
+        cacheNames.map(cache => { // eslint-disable-line
           if(cache !== cacheName) {
             console.log('Service Worker: clearing old cache');
             return caches.delete(cache);
