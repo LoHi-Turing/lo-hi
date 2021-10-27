@@ -3,7 +3,8 @@ const self = this;
 const cacheName = 'v1';
 const cachedAssets = [
   'index.html', 
-  '/public/images/Lohi-computer-1.png'
+  'images/Lohi-computer-1.png',
+  '/src/index.css'
 ]
 
 self.addEventListener('install', e => {
@@ -21,5 +22,14 @@ self.addEventListener('install', e => {
 })
 
 self.addEventListener('activate', e => {
-  console.log('ServiceWorker: Activated')
+  console.log('ServiceWorker: Activated');
+  e.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if()
+        })
+      )
+    })
+  );
 })
