@@ -40,12 +40,13 @@
 @media only screen and (max-width:600px ){
 
   .recipe-card-main-img {
-    height: 35%;
+    height: 200px;
     /* test this on safari */
   }
 
   .recipe-card-container {
     width: 250px; 
+    justify-content: start;
     color: #d28b39c9;
   }
   
