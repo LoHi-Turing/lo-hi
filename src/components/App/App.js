@@ -196,7 +196,7 @@ const resetCurrentRecipe = (returnedRecipes) => {
     }
   }
   
-  const identifyCurrentRecipe = (theId) => {
+  // const identifyCurrentRecipe = (theId) => {
 
 // ****** this one is the one that break before we change the is loading ********
 // ****** the problem we have here is that when we refresh the page, the page is going 
@@ -221,24 +221,24 @@ const resetCurrentRecipe = (returnedRecipes) => {
 
 
 // ******* this is what we built trying to get the recipe but it did not work ****
-    const getElevation = () => {       
-          if(elevation >= 5000) {
-            return 'recipe_high'
-            } else {
-            return 'recipe'
-            }     
-    }
+//     const getElevation = () => {       
+//           if(elevation >= 5000) {
+//             return 'recipe_high'
+//             } else {
+//             return 'recipe'
+//             }     
+//     }
 
-// ^^^^^^^^^^this is the one that was not changing the recipe at all and is still going back to the initial state 
-// ^^^^^^^^^^Denver is we refresh the page 
-    if(localStorage.chosenRecipe ) {
-      return JSON.parse(localStorage.getItem('chosenRecipe'))      
-    } else {
-      const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
-      localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
-      return foundRecipe;
-    }
-  }
+// // ^^^^^^^^^^this is the one that was not changing the recipe at all and is still going back to the initial state 
+// // ^^^^^^^^^^Denver is we refresh the page 
+//     if(localStorage.chosenRecipe ) {
+//       return JSON.parse(localStorage.getItem('chosenRecipe'))      
+//     } else {
+//       const foundRecipe =  recipes.data.find(recipe => recipe.id === theId)  
+//       localStorage.setItem('chosenRecipe', JSON.stringify(foundRecipe))
+//       return foundRecipe;
+//     }
+//   }
 
   const findSelectedRecipe = (id) => {
     const foundRecipe =  recipes.data.find(recipe => recipe.id === id)  
