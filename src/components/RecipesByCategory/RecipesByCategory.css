@@ -1,10 +1,24 @@
-.recipes-by-category{
-    height: 74vh;
-    width: 100vw;
+.recipes-by-category {
     margin: 0;
+    height: 78vh;
+    width: 100vw;
+    overflow-y: scroll;
 }
 
 .category-title {
-    color:gray;
-    /* margin-top:5px; */
+    color: gray;
 }
+
+.recipe-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+@media only screen and (max-width:600px ){
+    .recipe-cards-container {
+        justify-content: center;
+    }      
+  }
