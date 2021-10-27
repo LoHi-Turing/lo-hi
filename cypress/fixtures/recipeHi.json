@@ -1,0 +1,69 @@
+{
+    "data": [
+      {
+        "id": "1",
+        "type": "recipe_high",
+        "attributes": {
+          "title": "Chocolate Chip Brad Pitt",
+          "description": [
+            "Preheat the oven to 350ºF. Prepare a 9x5 baking pan by lining it with parchment or foil and lightly spraying with nonstick spray.",
+            "Mash the bananas with a fork or whisk. Whisk in the sugar, egg, vanilla, and vegetable oil.",
+            "Mix in the flour, baking powder, baking soda, cinnamon, and salt. The batter will be lumpy.",
+            "Fold in the chocolate chips.",
+            "Pour the batter into the prepared baking pan (top with more chocolate chips if you want). Bake for 55-60 minutes (start checking for doneness with a toothpick at 55 minutes). Let cool."
+          ],
+          "category": "Bread",
+          "cook_time": "1 HOUR 5 MINUTES",
+          "ingredients": [
+            {
+              "Overripe Bananas": "3-4 medium"
+            },
+            {
+              "Sugar": ".75 cups - 0.75 tablespoons"
+            },
+            {
+              "Egg": "1 large"
+            },
+            {
+              "Vanilla": "1 teaspoons"
+            },
+            {
+              "Vegetable Oil": ".25 cups"
+            },
+            {
+              "All Purpose Flour": "1.5 cups + 1.5 tablespoons"
+            },
+            {
+              "Baking Powder": "1 1/8 teaspoons"
+            },
+            {
+              "Baking Soda": "3/8 teaspoons"
+            },
+            {
+              "Cinnamon": "1 dash"
+            },
+            {
+              "Salt": ".125 teaspoons"
+            },
+            {
+              "Chocolate Chips": "1 cups"
+            }
+          ],
+          "images": [
+            {
+              "author": "Image by Meg and Jo!!!",
+              "url": "https://i.pinimg.com/originals/5a/af/a6/5aafa60a56df949b5ed5961682e0659c.jpg"
+            },
+            {
+              "author": "Image by Mimi Moromisato from Pexels",
+              "url": "https://lohi-api.s3.us-east-2.amazonaws.com/uploads/edf51855-d6b4-4af1-8db8-71ade8d19cdf?response-content-disposition=inline%3B%20filename%3D%22image_by_Mimi_Moromisato_from_Pexels.jpg%22%3B%20filename%2A%3DUTF-8%27%27image_by_Mimi_Moromisato_from_Pexels.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWG7BWRKORFSLZC43%2F20211027%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20211027T024550Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=d9fc579ac148a4b7e1b9a87337c805b4bab1f5dcb51b848094b6ffdfdc42dd5d"
+            },
+            {
+              "author": "Image by Tary Elliot from Pexels",
+              "url": "https://lohi-api.s3.us-east-2.amazonaws.com/uploads/239ffa37-3389-411b-abbb-d31851cf3f84?response-content-disposition=inline%3B%20filename%3D%22image_by_Tary_Elliot_from_Pexels.jpg%22%3B%20filename%2A%3DUTF-8%27%27image_by_Tary_Elliot_from_Pexels.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWG7BWRKORFSLZC43%2F20211027%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20211027T024550Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=f22678fc096b5470136ef1de4a2943b510ace0ee3c7f709861b7aeed37a1d1fa"
+            }
+          ]
+        }
+      }
+    ]
+}
