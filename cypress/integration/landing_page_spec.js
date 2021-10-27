@@ -9,7 +9,7 @@ describe('Landing Page', () => {
 
   it('Should display the company logo and information', () => {
     cy.get('.logo').should('be.visible')
-      .get('.logo-and-search > :nth-child(5)').should('contain', 'With this website you will be able to have recipies')
+      .get('.logo-and-search > :nth-child(6)').should('contain', 'Our pre-loaded recipies will automatically')
   })
 
   it('Should have an input that accepts a zip code input', () => {
