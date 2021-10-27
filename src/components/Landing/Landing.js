@@ -1,8 +1,6 @@
 import React from 'react';
 import Search from '../Search/Search';
 import './Landing.css';
-// import brandLogo from '../../images/LoHi.png';
-
 
 const Landing = ({ updateLocation }) => {
     return (
@@ -13,8 +11,8 @@ const Landing = ({ updateLocation }) => {
                     <h1 className='catch-phrase'>Where your AlTituDe matters!</h1>
                     <Search updateLocation={updateLocation}/>
                     <h2 className='how-to-use'>How To Use LoHi</h2>
-                    <p>With this website you will be able to have recipies adjusted accordently to your altitude </p>
-                    <p>The ingredientes that we will adjust will be: Flower , Sugar and Yeast </p>
+                    <p>We adjust recipies based on your altitude!</p>
+                    <p>Our pre-loaded recipies will automatically adjust the most common ingredients changed with altitude: sugar, flour, baking powder and soda. We also provide your local humidity to take into account for possible adjustments in liquids. Other adjustments to consider for high altitude: increased oven temperature and shorter cook time.</p>
                 </section>
         </section>
     )
