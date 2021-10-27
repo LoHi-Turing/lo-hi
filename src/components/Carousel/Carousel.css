@@ -1,7 +1,6 @@
 .carousel {
     width: 90%;
     height: 300px;
-    /* background-color: gray; */
     border-radius: 3px;
     padding-top: 2em;
 }
@@ -30,7 +29,6 @@
     height: 100%;
     display: grid;
     place-items: end;
-    /* place-items: center; */
     text-align-last: center;
     text-align: justify;
 }

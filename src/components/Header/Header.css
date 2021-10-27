@@ -15,7 +15,6 @@
   align-items: baseline;
   padding-top: 10px;
   width: 100vw;
-  /* min-height: 4vh; */
   min-height: 40%;
   background-color: #e3e3e3;
 }
@@ -25,7 +24,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100vw;
-  /* max-height: 20vh; */
   min-height: 60%;
 }
 
