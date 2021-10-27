@@ -53,7 +53,6 @@
     }
 
     .logo-and-search {
-        /* if i wnat to change the position of the logo change the next line */
         height: 12vh;
         margin-top: 5vh;
     }
@@ -68,13 +67,7 @@
     }
 
     .how-to-use {
-        margin-top: 8vh;
+        margin-top: 6vh;
     }
     
 }
-
-/*Lora, slab 27px*/
-/*Caveat*/
-/*Crimson Text*/
-/*Indie Flower*/
-/*Cormona Garmond*/
