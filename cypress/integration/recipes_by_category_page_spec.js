@@ -33,7 +33,7 @@ describe('Recipes by Category', () => {
   })
 
   it('Should display the recipe title', () => {
-    cy.get('.recipe-card-title').should('contain', 'Chocolate Chip Banana Bread')
+    cy.get('.recipe-card-title').should('contain', 'Chocolate Chip Brad Pitt')
   })
 
   it('Should navigate to the recipe details page when the card is selected', () => {
