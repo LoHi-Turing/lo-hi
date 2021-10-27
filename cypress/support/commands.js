@@ -1,5 +1,8 @@
 Cypress.Commands.add('load', () => {
-  cy.intercept('GET','https://lohi-api.herokuapp.com/api/v1/location?location=Denver',{fixture:'location.json'})
+  cy.intercept('GET','https://lohi-api.herokuapp.com/api/v1/location?location=Denver',{fixture:'denver.json'})
+  cy.intercept('GET','https://lohi-api.herokuapp.com/api/v1/recipes?elevation=5387',{fixture:'recipeHi.json'})
+  cy.intercept('GET','https://lohi-api.herokuapp.com/api/v1/location?location=90094',{fixture:'90094.json'})
+  cy.intercept('GET','https://lohi-api.herokuapp.com/api/v1/recipes?elevation=29',{fixture:'recipeLow.json'})
   cy.visit('http://localhost:3000/')
   cy.wait(2000)
 })

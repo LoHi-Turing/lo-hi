@@ -1,8 +1,8 @@
 describe('Recipes by Category', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.load()
       .get('.search-bar')
-      .type('90210')
+      .type('Denver')
       .get('.mag-glass').click()
       .get('.links-container-line1 > :nth-child(2) > .links').click()
   })
@@ -16,7 +16,7 @@ describe('Recipes by Category', () => {
   })
 
   it('Should still display the current selected location', () => {
-    cy.get('.p-location').should('contain', 'Beverly Hills')
+    cy.get('.p-location').should('contain', 'Denver')
   })
 
   it('Should contain a link to return to the home page', () => {
@@ -33,7 +33,7 @@ describe('Recipes by Category', () => {
   })
 
   it('Should display the recipe title', () => {
-    cy.get('.recipe-card-title').should('contain', 'Chocolate Chip Banana Bread')
+    cy.get('.recipe-card-title').should('contain', 'Chocolate Chip Brad Pitt')
   })
 
   it('Should navigate to the recipe details page when the card is selected', () => {
