@@ -1,8 +1,8 @@
 describe('Recipe Details', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.load()
       .get('.search-bar')
-      .type('90210')
+      .type('Denver')
       .get('.mag-glass').click()
       .get('.links-container-line1 > :nth-child(2) > .links').click()
       .get('.recipe-card-title').click()
@@ -17,7 +17,7 @@ describe('Recipe Details', () => {
   })
 
   it('Should still display the current selected location', () => {
-    cy.get('.p-location').should('contain', 'Beverly Hills')
+    cy.get('.p-location').should('contain', 'Denver')
   })
 
   it('Should have a link to return to the recipes by category page', () => {
@@ -25,7 +25,7 @@ describe('Recipe Details', () => {
   })
 
   it('Should return to the category page when the link is clicked', () => {
-    cy.get('a').click()
+    cy.get('.nav-links > a').click()
       .url().should('include', 'Bread')
       .get('.recipes-by-category').should('be.visible')
   })
