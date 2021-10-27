@@ -1,0 +1,13 @@
+{
+    "data": {
+      "id": null,
+      "type": "location",
+      "attributes": {
+        "elevation": 29,
+        "humidity": 7777777777,
+        "location": "90094",
+        "city": "Playa Vista",
+        "state": "CA"
+      }
+    }
+  }
