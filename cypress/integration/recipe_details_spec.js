@@ -34,10 +34,11 @@ describe('Recipe Details', () => {
     cy.get('.recipie-details-title').should('contain', 'Chocolate Chip Brad Pitt')
   })
 
-  it('Should display ingredients', () => {
+  it('Should display ingredients for Hi altitude', () => {
     cy.get('ul > :nth-child(1)').should('contain', 'Overripe Bananas')
       .get('ul > :nth-child(6)').should('contain', 'All Purpose Flour')
       .get('ul > :nth-child(9)').should('contain', 'Cinnamon')
+      .get('.recipe-details-ingredient-amounts > :nth-child(2)').should('contain', '.75 cups - 0.75 tablespoons')
   })
 
   it('Should have an Instruction title', () => {
@@ -50,5 +51,14 @@ describe('Recipe Details', () => {
 
   it('Should display a cook time', () => {
     cy.get('.recipe-details-cook-time').should('contain', '1 HOUR 5 MINUTES')
+  })
+
+  it('Should accept a new city input and have a different altitude ingredients', () => {
+    cy.get('.location')
+      .type('90094{enter}')
+      .get('.p-location').should('contain', 'Playa Vista') 
+    cy.wait(2000)
+      .get('.recipie-details-title').should('contain', 'Chocolate Chip Brad Pitt')
+      .get('.recipe-details-ingredient-amounts > :nth-child(2)').should('contain', '.75 cups')
   })
 })
