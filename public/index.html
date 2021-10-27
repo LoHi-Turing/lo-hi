@@ -34,8 +34,8 @@
     <div id="root"></div>
     <script>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('serviceWorker.js').then(registration => {
             console.log('Worker registration successful', registration.scope);
           }, function(err) {
             console.log('Worker registration failed', err);
