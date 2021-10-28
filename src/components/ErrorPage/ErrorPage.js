@@ -1,7 +1,8 @@
 import React from 'react';
-import './Error.css';
+import { Link } from 'react-router-dom';
+import './ErrorPage.css';
 
-const Error = ({ errorCode }) => {
+const ErrorPage = ({ errorCode, clearError }) => {
 
     switch(errorCode) {
         case 404:
@@ -10,7 +11,7 @@ const Error = ({ errorCode }) => {
               <img src='images/broken-egg.png'
                 alt='broken egg'/>
               <h1>{errorCode}</h1>
-              <h2>Page Not Found!</h2>
+              <h2>Page Not Found. Return to <Link to='/' onClick={() => clearError()}>Home Page</Link></h2>
               <p>Don't be discouraged. Everything breaks once in a while</p>
             </section>
           )
@@ -21,7 +22,7 @@ const Error = ({ errorCode }) => {
               <img src='images/broken-egg.png'
                 alt='broken egg'/>
               <h1>{errorCode}</h1>
-              <h2>Experiencing Server Issues!</h2> 
+              <h2>Experiencing Server Issues. Return to <Link to='/' onClick={() => clearError()}>Home Page</Link></h2> 
               <p>Don't be discouraged. Everything breaks once in a while</p>
             </section>
           )
@@ -32,11 +33,11 @@ const Error = ({ errorCode }) => {
             <img src='images/broken-egg.png'
                 alt='broken egg'/>
             <h1>{errorCode}</h1>
-            <h2>Experiencing Technical Diffifulties!</h2> 
+            <h2>Experiencing Technical Diffifulties. Return to <Link to='/' onClick={() => clearError()}>Home Page</Link></h2> 
             <p>Don't be discouraged. Everything breaks once in a while</p>
           </section>
         )
       }
     }
 
-export default Error;
+export default ErrorPage;
