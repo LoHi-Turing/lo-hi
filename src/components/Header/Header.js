@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './Header.css';
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useParams, useLocation} from 'react-router-dom';
 
 
-const Header = ({ location, locationElevation, humidity, updateLocation}) => {
+const Header = ({ location, locationElevation, humidity, updateLocation, clearError }) => {
 
   const [changeQuery, setChangeQuery] = useState('')
   const { category, elevation, id } = useParams()
@@ -45,9 +45,9 @@ const Header = ({ location, locationElevation, humidity, updateLocation}) => {
           </h1>
         </Link>
         <div className='nav-links'>
-          {pageLocation.pathname === '/all-categories' && <Link to='/'>Home</Link>}
-          {pageLocation.pathname === `/${category}` && <Link to='/all-categories'>Categories</Link>}
-          {pageLocation.pathname === `/${category}/${elevation}/${id}` && <Link to={`/${category}`}>{category}</Link>}
+          {pageLocation.pathname === '/all-categories' && <Link to='/' onClick={() => clearError()}>Home</Link>}
+          {pageLocation.pathname === `/${category}` && <Link to='/all-categories' onClick={() => clearError()}>Categories</Link>}
+          {pageLocation.pathname === `/${category}/${elevation}/${id}` && <Link to={`/${category}`} onClick={() => clearError()}>{category}</Link>}
         </div>
       </div> 
     </section>

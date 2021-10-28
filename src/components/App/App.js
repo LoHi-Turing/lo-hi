@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 import AllCategories from '../AllCategories/AllCategories';
 import RecipesByCategory from '../RecipesByCategory/RecipesByCategory';
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
-import Error from '../Error/Error';
+import ErrorPage from '../ErrorPage/ErrorPage';
 import Loading from '../Loading/Loading';
 import { getLocationData } from '../../utils/apiCalls';
 import { getRecipeData } from '../../utils/apiCalls';
@@ -36,7 +36,7 @@ const App = () => {
       const returnedLocationInfo = await res.json()
       setLocationInfo(returnedLocationInfo)      
     } catch (err) {
-      setError(err.status)
+      console.log(`Error: ${err}`)
     }
   }
 
@@ -60,7 +60,7 @@ const App = () => {
         resetCurrentRecipe(returnedRecipeData)
         setLoading(false)
       } catch (err) {
-        setError(err.status)
+        console.log(`Error: ${err}`)
       }
     }  
       invokeRecipeData()  
@@ -98,6 +98,10 @@ const App = () => {
     }
   }
 
+  const clearError = () => {
+    setError('')
+  }
+
   const findSelectedRecipe = (id) => {
     const foundRecipe =  recipes.data.find(recipe => recipe.id === id)  
     setCurrentRecipt(foundRecipe)
@@ -108,7 +112,11 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => (
             <section className='landing-page'>
-            {error && <Error errorCode={error}/>}
+            {error && 
+              <ErrorPage 
+              errorCode={error}
+              clearError={clearError}
+              />}
             {!error && <Landing updateLocation={updateLocation}/>}
             </section>
         )}/>
@@ -119,9 +127,14 @@ const App = () => {
                 locationElevation={elevation}
                 humidity={humidity}
                 updateLocation={updateLocation}
+                clearError={clearError}
               />
-              {isLoading && <Loading />}
-              {(!isLoading && error) && <Error errorCode={ error }/>}
+              {isLoading && !error && <Loading />}
+              {error && 
+                <ErrorPage 
+                errorCode={ error }
+                clearError={clearError}
+                />}
               {(!error && !isLoading) && <AllCategories/>}
               <Footer/>
             </section>          
@@ -135,9 +148,13 @@ const App = () => {
                 locationElevation={elevation}
                 humidity={humidity}
                 updateLocation={updateLocation}
+                clearError={clearError}
               /> 
-              {isLoading && recipes.length === 0 && <Loading />}
-              {(!isLoading && error) && <Error errorCode={error}/>}
+              {(isLoading && recipes.length === 0 && !error) && <Loading />}
+              {error && 
+                <ErrorPage 
+                errorCode={error}
+                clearError={clearError}/>}
               {(!isLoading && !error && recipes.length !== 0) && 
                 <RecipesByCategory 
                 categoryType={categoryType} 
@@ -159,9 +176,14 @@ const App = () => {
                 locationElevation={elevation}
                 humidity={humidity}
                 updateLocation={updateLocation}
+                clearError={clearError}
               /> 
-             {(isLoading && !elevation) && <Loading />}
-             {(!isLoading && error) && <Error errorCode={error}/>} 
+             {(isLoading && !elevation && !error) && <Loading />}
+             {error && 
+              <ErrorPage 
+              errorCode={error}
+              clearError={clearError}
+              />} 
              {(!isLoading && !error && currentRecipe) && 
              <RecipeDetails 
                 categoryType={categoryType}
