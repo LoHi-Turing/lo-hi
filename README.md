@@ -36,8 +36,8 @@
   - [Preview](#preview)
 - [Project Configuration](#project-configuration)
   - [<ins>Basic Setup](#insbasic-setup)
-  - [<ins>How to run the cypress test suite:](#inshow-to-run-the-cypress-test-suite)
-  - [<ins>Schema Design](#insschema-design)
+  - [<ins>How to run the cypress test suite](#inshow-to-run-the-cypress-test-suite)
+  - [Wireframe](#wireframe)
 - [Contributors](#contributors)
 
 ## Overview
@@ -123,7 +123,7 @@ Built with a responsive design to work on various devices
   ```
 * when it opens choose the file you would like to test or hit the play button
   
-### <ins>[Schema Design](https://miro.com/app/board/o9J_lq1w5ZE=/?invite_link_id=688520709845)
+### <ins>[Wireframe](https://miro.com/app/board/o9J_lq1w5ZE=/?invite_link_id=688520709845)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/82066350/139167052-4b261bf4-51c8-44d6-9951-102fde01ac31.png"/>
